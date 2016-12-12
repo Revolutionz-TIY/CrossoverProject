@@ -16,8 +16,15 @@
 //
 //
 //        // initalize spark
-//
-//        //Spark.get (
+////
+////        Spark.get(
+////                "/api/hello",
+////                ((request, response) ->{
+////
+////                }
+////    }
+////                )
+////        )
 //        //hello world test route
 //        //)
 //
