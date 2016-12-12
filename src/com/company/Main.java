@@ -1,10 +1,25 @@
 package com.company;
 
+import spark.Spark;
+
 public class Main {
 
-    // arraylist of product objects
+
 
     public static void main(String[] args) {
+
+        Spark.staticFileLocation("/public");
+
+        Spark.init();
+
+        Spark.get(
+                "/api/hello",
+                (((request, response) -> {
+
+
+                    return "hello world";
+                }))
+        );
 
     }
 }
