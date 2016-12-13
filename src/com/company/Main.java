@@ -19,7 +19,7 @@ public class Main {
 
     public static ArrayList<Products> product = new ArrayList<>();
 
-    public static ArrayList<String> cart = new ArrayList();
+    public static HashMap<String, Integer> cart = new HashMap<>();
 
 
     public static void main(String[] args) throws FileNotFoundException{
@@ -58,6 +58,29 @@ public class Main {
 
         );
 
+        Spark.post(
+                "/api/addItem",
+                (((request, response) -> {
+                    int itemIdInt;
+                    String itemId = request.queryParams("itemId");
+                    if (itemId == null){
+                        throw new Exception("don't talk back");
+                    }
+                    itemIdInt = Integer.parseInt(itemId);
+
+
+
+
+//                    product = new Products(id,name, description, price, image, type);
+
+                    cart.put(itemId, 1);
+
+
+                    return "";
+                }))
+        );
+
+
         Spark.get(
                 "/api/cart",
                 (((request, response) -> {
@@ -81,44 +104,46 @@ public class Main {
 //        );
 
 
+
         Spark.post(
-                "/api/addItem",
-                (((request, response) -> {
-                    String item = request.queryParams("itemTag");
-                    if (item == null){
-                     throw new Exception("don't talk back");
+                "/api/removeItem",
+                ((request, response) -> {
+                    String removeProduct = request.queryParams("itemTag");
+
+                    if(removeProduct == null) {
+                        throw new Exception();
                     }
-                    int a = Integer.parseInt(item);
 
-                    //check for wrong inputs
+                    int rp = Integer.parseInt(removeProduct);
 
-                    Products b = product.get(a);
-                    //cart.add(b);
+
+                    cart.remove(rp);
 
 
                     return "";
-                }))
+                })
         );
-
-//        Spark.post(
-//                "/api/removeItem",
-//                ((request, response) -> {
-//                    String removeProduct = request.queryParams("removeProduct");
-//
-//                    //for getting cart input cycle thru to find
-//                    //remove somthin'
-//
-//                    cart.remove("id");
-//                    int rp Integer.parseInt(removeProduct);
-//
-//                    return "";
-//                })),
-//        );
 
         Spark.post(
                 "/changeQuant",
                 (((request, response) -> {
 
+                    String id = request.queryParams("tagName");
+
+                    if(id == null){
+                        throw new Exception();
+                    }
+
+                    int a = Integer.parseInt(id);
+
+
+
+                    String newQuant = request.queryParams("quant");
+                    int quant = Integer.parseInt(newQuant);
+
+//                    cart.add(a);
+//                    cart.add(quant);
+
 
 
                     return "";
@@ -126,34 +151,39 @@ public class Main {
 
         );
 
+        Spark.get(
+                "/api/tax",
+                (((request, response) -> {
+
+                    String zip = request.queryParams("zipCode");
+                    String id = request.queryParams("tagName");
+
+                    //parse zip
+
+
+
+                    URL taxRateUrl = new URL("https://taxrates.api.avalara.com:443/postal?country=usa&postal=" + zip + "&apikey=ixNU16Howv1weFWaIX7oypxQGrzo0Ftrns0brEJLBnDePfeQxcmwpS6ufTi3Xqvg1+bAudfTetCOJmvInYZ/Aw==");
+
+                    URLConnection uc = taxRateUrl.openConnection(); //first step in connectin gto api FOR ALLLL API!!!!!
+                    BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream())); // making so you can read in URL u get back
+                    String inputLine = in.readLine(); //read in data from connection...line of json
+
+                    System.out.println(inputLine);
+
+                    JsonParser parser = new JsonParser();
+                    Products product = parser.parse(inputLine, Products.class);
+
+                    HashMap m = new HashMap();
+//                    m.put("postal", postalCode);
+//
+//                    m.put("taxRate", Tax.get);
+
+                    return product;
+
+
+
+                }))
+        );
 
     }
-//    Spark.get(
-//                 "/taxinfo",
-//                 (((request,response)-> {
-//
-//        int postalCode = 55434;
-//
-//        URL taxRateUrl = new URL("https://taxrates.api.avalara.com:443/postal?country=usa&postal=" + postalCode + "&apikey=ixNU16Howv1weFWaIX7oypxQGrzo0Ftrns0brEJLBnDePfeQxcmwpS6ufTi3Xqvg1+bAudfTetCOJmvInYZ/Aw==");
-//
-//        URLConnection uc = taxRateUrl.openConnection(); //first step in connectin gto api FOR ALLLL API!!!!!
-//        BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream())); // making so you can read in URL u get back
-//        String inputLine = in.readLine(); //read in data from connection...line of json
-//
-//        System.out.println(inputLine);
-//
-//        JsonParser parser = new JsonParser();
-//        Products product = parser.parse(inputLine, Tax.class);
-//
-//        HashMap m = new HashMap();
-//        m.put("postal", postalCode);
-//
-//        m.put("taxRate", Tax.get);
-//
-//        return product;
-//
-//
-//
-//    }))
-
 }
