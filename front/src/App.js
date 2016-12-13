@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import api from './Api.js'
 import './App.css';
 import axios from 'axios';
+import about from './About';
 
 class App extends Component {
   constructor (props) {
