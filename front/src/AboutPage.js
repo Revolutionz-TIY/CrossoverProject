@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Link } from 'react-router';
 
 
-export default class AboutPage extends Component {
+export default class About extends Component {
   render() {
     return(
       <div>
-        AboutPage
+        <ul>
+          <Link to={'/about/'}><span className="AboutPage">Stuff</span></Link>
+        </ul>
       </div>
     )
   }
