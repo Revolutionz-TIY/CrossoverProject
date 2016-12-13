@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 
-export default class About extends Component {
+export default class AboutPage extends Component {
   render() {
     return(
       <div className="About-content">
@@ -12,7 +12,6 @@ export default class About extends Component {
         </p>
         <p>We welcome you to Revolutionz and are here to help you find a way to spend your time the way you want to spend it!
         </p>
-      </div>
     )
   }
 }

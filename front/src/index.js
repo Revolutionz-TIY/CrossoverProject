@@ -11,7 +11,6 @@ import ShopTypePage from './ShopTypePage';
 
 import './index.css';
 
-let results = [{}]
 
 ReactDOM.render((
 
