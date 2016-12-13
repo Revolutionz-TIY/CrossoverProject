@@ -33,12 +33,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="StorePageContent">
+      <div className="content">
         {this.state.results.map((result, index) => {
           console.log(result);
           return (
-            <div className="storeInformation">
-              <ul className="StorePageList">
+            <div className="stuff">
+              <ul className="list">
                 <li>{result.name}</li>
                 <li>{result.description}</li>
                 <li>{result.price}</li>
