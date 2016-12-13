@@ -24,9 +24,9 @@ We believe in open-source and building on ideas. If you have any ideas of improv
 
 GitHub:
 
-> Erik Jakubowski - erikjakubowski
-> Amal Abukar - amalabukar
-> Matthew Scofield - MScofield
-> Jenessa White - jenessawhite
-> Bill Gottsch - billgottsch
+* Erik Jakubowski - erikjakubowski
+* Amal Abukar - amalabukar
+* Matthew Scofield - MScofield
+* Jenessa White - jenessawhite
+* Bill Gottsch - billgottsch
 
