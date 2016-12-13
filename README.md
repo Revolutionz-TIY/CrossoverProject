@@ -22,9 +22,11 @@ We believe in open-source and building on ideas. If you have any ideas of improv
 
 #####Contact us
 
-GitHub -  Erik Jakubowski - erikjakubowski
-          Amal Abukar - amalabukar
-          Matthew Scofield - MScofield
-          Jenessa White - jenessawhite
-          Bill Gottsch - billgottsch
+GitHub:
+
+> Erik Jakubowski - erikjakubowski
+> Amal Abukar - amalabukar
+> Matthew Scofield - MScofield
+> Jenessa White - jenessawhite
+> Bill Gottsch - billgottsch
 
