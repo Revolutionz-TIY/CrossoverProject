@@ -1,32 +1,38 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
+import api from './Api.js'
 import './App.css';
 
 class App extends Component {
   constructor (props) {
     super (props)
     this.state = {
-      results: []
+      results: [],
+      api: api()
     }
   }
-  componentDidMount () {
-    this.getApi();
+
+  componentDidMount(){
+    this.getItems();
   }
-  getApi () {
-    axios.get('http://localhost:3000/api/hello')
-    .then((response) => {
-      console.log(response);
-      let results = response.slice(0);
-      console.log(results);
-      this.setState ({
-        results: results,
+
+  getItems() {
+    axios.get(api() + '/products')
+      .then((response) => {
+        console.log(response);
+        let newResults = response.data.slice(0);
+        console.log(newResults);
+        this.setState ({
+          results: newResults,
+        })
       })
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+      .catch(function (error) {
+        console.log(error);
+      });
+
   }
+
   render() {
     return (
       <div className="App">
