@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import api from './Api.js'
-import { Link } from 'react-router';
-import './App.css';
 
-export default class App extends Component {
+export default class PackagesPage extends Component {
   constructor (props) {
     super (props)
     this.state = {
@@ -30,25 +28,23 @@ export default class App extends Component {
       .catch(function (error) {
         console.log(error);
       });
-  }
-
-  render() {
+  }  render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h1><Link to={'/'}>Revolutionz</Link></h1>
-          <div>
-            <ul className="App-navigation">
-              {/* <li><Link to={'/about'}>About</Link></li> */}
-              <li><Link to={'/shop'}>Shop</Link></li>
-              <li><Link to={'/mywatch'}>MyWatch</Link></li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          {this.props.children}
-        </div>
+      <div>
+        {this.state.results.map((result, index) => {
+          console.log(result);
+          return (
+            <div className="stuff">
+              <ul className="list" key={result.id}>
+                <li>{result.name}</li>
+                <li>{result.description}</li>
+                <li>{result.price}</li>
+                <li>{result.type}</li>
+              </ul>
+            </div>
+          )
+        })}
       </div>
-    )
+    );
   }
 }
