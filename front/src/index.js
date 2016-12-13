@@ -12,7 +12,6 @@ import MyWatchPage from './MyWatchPage';
 import FailPage from './FailPage';
 import './index.css';
 
-let results = [{}]
 
 ReactDOM.render((
 

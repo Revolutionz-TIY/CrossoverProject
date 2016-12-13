@@ -40,6 +40,7 @@ export default class PackagesPage extends Component {
                 <li>{result.description}</li>
                 <li>{result.price}</li>
                 <li>{result.type}</li>
+                <li>{result.image}</li>
               </ul>
             </div>
           )
