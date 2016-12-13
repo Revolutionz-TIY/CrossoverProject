@@ -4,16 +4,16 @@ import './App.css';
 
 class App extends Component {
   constructor (props) {
-    super (props),
-    this.state {
-
+    super (props);
+    this.state ={
+     
     }
   }
   componentDidMount () {
     this.getApi();
   }
   getApi () {
-    
+
   }
   render() {
     return (
