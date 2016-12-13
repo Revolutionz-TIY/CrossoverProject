@@ -3,8 +3,6 @@ import axios from 'axios';
 import api from './Api.js'
 import { Link } from 'react-router';
 import './App.css';
-import axios from 'axios';
-import about from './About';
 
 
 export default class App extends Component {
@@ -42,9 +40,9 @@ export default class App extends Component {
           <h1><Link to={'/'}>Revolutionz</Link></h1>
           <div>
             <ul className="App-navigation">
-              {/* <li><Link to={'/about'}>About</Link></li> */}
-              <li><Link to={'/shop'}>Shop</Link></li>
-              <li><Link to={'/mywatch'}>MyWatch</Link></li>
+              <li><Link to={'/about'} className="App-navigation-link">About</Link></li>
+              <li><Link to={'/shop'} className="App-navigation-link">Shop</Link></li>
+              <li><Link to={'/mywatch'} className="App-navigation-link">MyWatch</Link></li>
             </ul>
           </div>
         </div>
