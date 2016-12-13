@@ -3,6 +3,9 @@ import axios from 'axios';
 import api from './Api.js'
 import { Link } from 'react-router';
 import './App.css';
+import axios from 'axios';
+import about from './About';
+
 
 export default class App extends Component {
   constructor (props) {

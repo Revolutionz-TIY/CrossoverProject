@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -18,19 +19,19 @@ public class Main {
 
     public static ArrayList<Products> product = new ArrayList<>();
 
+    public static ArrayList<String> cart = new ArrayList();
 
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException{
 
         File file = new File("product.csv");
         Scanner scanner = new Scanner(file);
-        while(scanner.hasNext()){
+        while (scanner.hasNext()) {
             String individual = scanner.nextLine();
             String[] a = individual.split("\\,");
             Products products = new Products(a[0], a[1], a[2], a[3], a[4], a[5]);
             product.add(products);
         }
-
 
 
         Spark.staticFileLocation("/public");
@@ -42,8 +43,6 @@ public class Main {
                 (((request, response) -> {
 
 
-
-
                     return "hello world";
                 }))
         );
@@ -52,10 +51,6 @@ public class Main {
                 "/api/products",
                 (((request, response) -> {
 
-                    //create object
-                    //Array
-                    //EVERYTTHINGhh
-
                     JsonSerializer serializer = new JsonSerializer();
                     String json = serializer.include("*").serialize(product);
                     return json;
@@ -63,78 +58,102 @@ public class Main {
 
         );
 
+        Spark.get(
+                "/api/cart",
+                (((request, response) -> {
+
+                    JsonSerializer serializer = new JsonSerializer();
+                    String json = serializer.include("*").serialize(cart);
+                    return json;
+
+                }))
+        );
+
 //        Spark.get(
-//                "/api/cart",
+//                "/api/user",
 //                (((request, response) -> {
-//                    //craete object
-//                    //rquest perams"kdfsdf"
-//
-//
-//
-//
-//                    //data struct what and how mmuch
-//
-//
-//                    //return cart info
+//                    //create object
+//                    //request params
+//                    JsonSerializer serializer = new JsonSerializer();
+//                    String json = serializer.include("*").serialize(product);
+//                    return json;
 //                }))
 //        );
 
-        Spark.get(
-                "/api/user",
+
+        Spark.post(
+                "/api/addItem",
                 (((request, response) -> {
-                    //create object
-                    //request params
-                    JsonSerializer serializer = new JsonSerializer();
-                    String json = serializer.include("*").serialize(product);
-                    return json;
+                    String item = request.queryParams("itemTag");
+                    if (item == null){
+                     throw new Exception("don't talk back");
+                    }
+                    int a = Integer.parseInt(item);
+
+                    //check for wrong inputs
+
+                    Products b = product.get(a);
+                    //cart.add(b);
+
+
+                    return "";
                 }))
         );
+
+//        Spark.post(
+//                "/api/removeItem",
+//                ((request, response) -> {
+//                    String removeProduct = request.queryParams("removeProduct");
 //
-//        Spark.get(
-//                "/taxinfo",
-//                (((request, response) -> {
+//                    //for getting cart input cycle thru to find
+//                    //remove somthin'
 //
-//                    int postalCode = 55434;
+//                    cart.remove("id");
+//                    int rp Integer.parseInt(removeProduct);
 //
-//                    URL taxRateUrl = new URL("https://taxrates.api.avalara.com:443/postal?country=usa&postal=" + postalCode + "&apikey=ixNU16Howv1weFWaIX7oypxQGrzo0Ftrns0brEJLBnDePfeQxcmwpS6ufTi3Xqvg1+bAudfTetCOJmvInYZ/Aw==");
-//
-//                    URLConnection uc = taxRateUrl.openConnection(); //first step in connectin gto api FOR ALLLL API!!!!!
-//                    BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream())); // making so you can read in URL u get back
-//                    String inputLine = in.readLine(); //read in data from connection...line of json
-//
-//                    System.out.println(inputLine);
-//
-//                    JsonParser parser = new JsonParser();
-//                    Products product = parser.parse(inputLine, Products.class);
-//
-//                    HashMap m =new HashMap();
-//                    m.put("postal", postalCode);
-//
-//                   m.put("taxRate", product.get)
-//
-//                    return "product";
-//
+//                    return "";
 //                })),
-//       );
+//        );
+
+        Spark.post(
+                "/changeQuant",
+                (((request, response) -> {
 
 
-//        Spark.post (
-//                "",
-//
-//
-//
-//                add item to cart
-//        )
-//        Spark.post (
-//
-//                remove item from cart
-//        )
-//        Spark.post  (
-//
-//                change product quantity
-//        )
 
+                    return "";
+                }))
+
+        );
 
 
     }
+//    Spark.get(
+//                 "/taxinfo",
+//                 (((request,response)-> {
+//
+//        int postalCode = 55434;
+//
+//        URL taxRateUrl = new URL("https://taxrates.api.avalara.com:443/postal?country=usa&postal=" + postalCode + "&apikey=ixNU16Howv1weFWaIX7oypxQGrzo0Ftrns0brEJLBnDePfeQxcmwpS6ufTi3Xqvg1+bAudfTetCOJmvInYZ/Aw==");
+//
+//        URLConnection uc = taxRateUrl.openConnection(); //first step in connectin gto api FOR ALLLL API!!!!!
+//        BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream())); // making so you can read in URL u get back
+//        String inputLine = in.readLine(); //read in data from connection...line of json
+//
+//        System.out.println(inputLine);
+//
+//        JsonParser parser = new JsonParser();
+//        Products product = parser.parse(inputLine, Tax.class);
+//
+//        HashMap m = new HashMap();
+//        m.put("postal", postalCode);
+//
+//        m.put("taxRate", Tax.get);
+//
+//        return product;
+//
+//
+//
+//    }))
+
 }
