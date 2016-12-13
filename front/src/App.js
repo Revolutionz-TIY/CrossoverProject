@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import logo from './logo.svg';
 import api from './Api.js'
 import './App.css';
@@ -12,7 +13,7 @@ class App extends Component {
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getItems();
   }
 
@@ -29,6 +30,7 @@ class App extends Component {
       .catch(function (error) {
         console.log(error);
       });
+  }
 
   render() {
     return (
@@ -40,6 +42,13 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <ul>
+          {this.state.results.map((item, index) => {
+            return (
+              <li key={item.id}>{item.name} </li>
+            )
+          })}
+        </ul>
       </div>
     );
   }
