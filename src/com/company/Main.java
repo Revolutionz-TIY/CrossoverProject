@@ -22,7 +22,7 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        File file = new File("products.csv");
+        File file = new File("product.csv");
         Scanner scanner = new Scanner(file);
         while(scanner.hasNext()){
             String individual = scanner.nextLine();
@@ -54,7 +54,7 @@ public class Main {
 
                     //create object
                     //Array
-                    //EVERYTTHING
+                    //EVERYTTHINGhh
 
                     JsonSerializer serializer = new JsonSerializer();
                     String json = serializer.include("*").serialize(product);
