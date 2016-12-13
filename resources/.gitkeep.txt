@@ -26,13 +26,7 @@
          primary get route for homepage  "/"
          inside primary get:
 
-        create new request session
-        load unique user id into session
-        create new user object for (unique user id)
-        create new hashmap to store session data
-        put user info handle(s) & corresponding unique user data into session data hashmap
 
-        load mustache template engine
         )
 
          Spark.get(
