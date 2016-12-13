@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:4567/",
+  "homepage": "https://revolutionz-tiy.github.io/CrossoverProject/",
   "devDependencies": {
     "react-scripts": "0.8.4"
   },
