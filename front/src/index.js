@@ -5,11 +5,10 @@ import App from './App';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import ShopPage from './ShopPage';
-import PackagesPage from './PackagesPage';
-import WatchesPage from './WatchesPage';
-import PATPage from './PATPage';
 import MyWatchPage from './MyWatchPage';
 import FailPage from './FailPage';
+import ShopTypePage from './ShopTypePage';
+
 import './index.css';
 
 let results = [{}]
@@ -20,11 +19,8 @@ ReactDOM.render((
     <Route path="/" component={App} >,
       <IndexRoute component={HomePage} />
       <Route path="about" component={AboutPage} />
-      <Route path="shop" component={ShopPage}>
-        <Route path="packages" component={PackagesPage} />
-        <Route path="watches" component={WatchesPage} />
-        <Route path="pat" component={PATPage} />
-      </Route>
+      <Route path="shop" component={ShopPage} />
+      <Route path="shop/:type" component={ShopTypePage} />
       <Route path="mywatch" component={MyWatchPage} />
       <Route path="*" component={FailPage} />
     </Route>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import api from './Api.js'
 
-export default class PackagesPage extends Component {
+export default class ShopTypePage extends Component {
   constructor (props) {
     super (props)
     this.state = {
@@ -12,6 +12,7 @@ export default class PackagesPage extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props.params.type);
     this.getItems();
   }
 
@@ -19,8 +20,11 @@ export default class PackagesPage extends Component {
     axios.get(api() + '/products')
       .then((response) => {
         console.log(response);
-        let newResults = response.data.slice(0);
-        console.log(newResults);
+        let newResults = response.data.slice(0).filter((v) => {
+          console.log(v.type.toLowerCase());
+          console.log(this.props.params.type);
+          return v.type.toLowerCase().trim() === this.props.params.type
+        } );
         this.setState ({
           results: newResults,
         })
@@ -28,7 +32,9 @@ export default class PackagesPage extends Component {
       .catch(function (error) {
         console.log(error);
       });
-  }  render() {
+  }
+
+  render() {
     return (
       <div>
         {this.state.results.map((result, index) => {

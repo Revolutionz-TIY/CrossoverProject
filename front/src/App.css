@@ -17,3 +17,21 @@
   list-style: none;
   color: lightblue;
 }
+
+.App-navigation-link {
+
+}
+
+.About-content {
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+}
+
+.About-title {
+
+}
+
+.About-text {
+  color: #091421;
+}

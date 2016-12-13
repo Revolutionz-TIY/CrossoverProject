@@ -8,11 +8,11 @@ ul {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  border: 1px solid black;
   width: 25%;
   text-align: center;
 
 }
 li {
   list-style: none;
+
 }
