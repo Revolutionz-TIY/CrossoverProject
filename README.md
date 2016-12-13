@@ -16,11 +16,17 @@ The client can add, remove and check out of the cart, with icons showing the suc
 It may not be a physical object that a person could go out to stores and buy (typically), but what is more important and valuable than time? We offer an opportunity to do just that.
 
 
-#####Comments? Questions? Ideas? Let us know!
+
+
+
+####Comments? Questions? Ideas? Let us know!
 We believe in open-source and building on ideas. If you have any ideas of improvement, comments on design or build, please let us know!
 
 
-#####Contact us
+
+
+
+####Contact us
 
 GitHub:
 
