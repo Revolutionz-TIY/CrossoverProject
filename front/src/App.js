@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import logo from './logo.svg';
 import api from './Api.js'
 import './App.css';
 import axios from 'axios';
 import about from './About';
 
-class App extends Component {
+
+export default class App extends Component {
   constructor (props) {
     super (props)
     this.state = {
@@ -13,7 +16,7 @@ class App extends Component {
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getItems();
   }
 
@@ -30,7 +33,7 @@ class App extends Component {
       .catch(function (error) {
         console.log(error);
       });
-    }
+  }
 
   render() {
     return (
@@ -39,7 +42,7 @@ class App extends Component {
           console.log(result);
           return (
             <div className="stuff">
-              <ul className="list">
+              <ul className="list" key={result.id}>
                 <li>{result.name}</li>
                 <li>{result.description}</li>
                 <li>{result.price}</li>
@@ -52,4 +55,3 @@ class App extends Component {
     )
   }
 }
-export default App;
