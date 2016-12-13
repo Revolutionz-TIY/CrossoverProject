@@ -13,9 +13,9 @@ export default class ShopPage extends Component {
       <div>
         ShopPage
         <ul className="Shop-navigation">
-          <li><Link to={'/shop/packages'}>Time Packages</Link></li>
+          <li><Link to={'/shop/package'}>Time Packages</Link></li>
           <li><Link to={'/shop/watches'}>Watches</Link></li>
-          <li><Link to={'/shop/pat'}>Pick-A-Time Packages</Link></li>
+          <li><Link to={'/shop/PAT'}>Pick-A-Time Packages</Link></li>
         </ul>
         <div>
           {this.props.children}
