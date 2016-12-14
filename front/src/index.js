@@ -8,6 +8,7 @@ import ShopPage from './ShopPage';
 import MyWatchPage from './MyWatchPage';
 import FailPage from './FailPage';
 import ShopTypePage from './ShopTypePage';
+// import ItemPage from './ItemPage';
 
 import './index.css';
 
@@ -19,11 +20,12 @@ ReactDOM.render((
       <IndexRoute component={HomePage} />
       <Route path="about" component={AboutPage} />
       <Route path="shop" component={ShopPage} />
-      <Route path="shop/:type" component={ShopTypePage} />
+      <Route path="shop/:type" component={ShopTypePage}>
+        {/* <Route path="shop/:type/:id" component={ItemPage} /> */}
+      </Route>
       <Route path="mywatch" component={MyWatchPage} />
       <Route path="*" component={FailPage} />
     </Route>
-
   </Router>
 ),
   document.getElementById('root')

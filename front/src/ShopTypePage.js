@@ -42,26 +42,21 @@ export default class ShopTypePage extends Component {
         {this.state.results.map((result, index) => {
           console.log(result);
           return (
-            <div className="STP-content">
-              <img className="STP-image" src={result.image} role="presentation"></img>
-              <div className="STP-header" key={result.id}>
-                <span className="STP-name">{result.name}</span><span className="STP-price">${result.price}</span>
-              </div>
-              <div className="STP-list">
-                <p className="STP-description">{result.description}</p>
-                <button className="STPbuttons">Add to cart</button>
-              </div>
-              <div className="STP-footer">
+            <div className="STP-container">
+              <div className="STP-content">
+                <img className="STP-image" src={result.image} role="presentation"></img>
+                <div className="STP-header" key={result.id}>
+                  <span className="STP-name">{result.name}</span><span className="STP-price">${result.price}</span>
+                </div>
+                <div className="STP-list">
+                  <p className="STP-description">{result.description}</p>
+                  <button className="STPbuttons">Add to cart</button>
+                </div>
+                <div className="STP-footer">
+
+                </div>
 
               </div>
-            {/* <div className="stuff">
-              <img src={result.image} style={{width: 300, height: 200 }} className="productImage" alt="product photo" role="presentation"/>
-              <ul className="list" key={result.id}>
-                <li>{result.name}</li>
-                <li>{result.description}</li>
-                <li>{result.price}</li>
-                <li>{result.type}</li>
-              </ul> */}
             </div>
           )
         })}

@@ -37,11 +37,17 @@
 }
 
 /**********ShopType Page**********/
+.STP-container {
+
+}
 
 .STP-content {
   display: flex;
   flex-direction: column;
-  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #37375B;
+  margin-top: 2rem;
+  box-shadow: 0px 3px 5px #37375B;
 }
 
 .STP-image {
@@ -83,7 +89,7 @@
 }
 
 .STPbuttons {
-  background: #3A6682;
+  background: #37375B;
   border:none;
   min-height:32px;
   max-height: 32px;
