@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import StoreNavigation from './StoreNavigation';
 
 export default class ShopPage extends Component {
   constructor(props) {
@@ -11,13 +11,8 @@ export default class ShopPage extends Component {
   render() {
     return (
       <div>
-        ShopPage
-        <ul className="Shop-navigation">
-          <li><Link to={'/shop/package'}>Time Packages</Link></li>
-          <li><Link to={'/shop/watches'}>Watches</Link></li>
-          <li><Link to={'/shop/pat'}>Pick-A-Time Packages</Link></li>
-        </ul>
         <div>
+          <StoreNavigation />
           {this.props.children}
         </div>
       </div>

@@ -8,25 +8,25 @@ import ShopPage from './ShopPage';
 import MyWatchPage from './MyWatchPage';
 import FailPage from './FailPage';
 import ShopTypePage from './ShopTypePage';
-// import ItemPage from './ItemPage';
+import { IntlProvider } from 'react-intl';
+
 
 import './index.css';
 
 
 ReactDOM.render((
-
+<IntlProvider locale="en">
   <Router history={browserHistory}>
     <Route path="/" component={App} >,
       <IndexRoute component={HomePage} />
       <Route path="about" component={AboutPage} />
       <Route path="shop" component={ShopPage} />
-      <Route path="shop/:type" component={ShopTypePage}>
-        {/* <Route path="shop/:type/:id" component={ItemPage} /> */}
-      </Route>
+      <Route path="shop/:type" component={ShopTypePage} />
       <Route path="mywatch" component={MyWatchPage} />
       <Route path="*" component={FailPage} />
     </Route>
   </Router>
+</IntlProvider>
 ),
   document.getElementById('root')
 );
