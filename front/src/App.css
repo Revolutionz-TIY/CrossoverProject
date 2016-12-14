@@ -206,6 +206,56 @@
   color:#F6F7FB;
 }
 
+/**********Fail Page***********/
+
+.FailPage {
+  height: 100vh;
+  font-family: 'Avenir Next', sans-serif;
+  background: url('./images/404clockpurp.jpg');
+  background-size: cover;
+}
+
+.fail-text-title {
+  font-family: 'Avenir Next', sans-serif;
+  font-weight: 600;
+  padding-top: 9rem;
+  padding-bottom: 2rem;
+  color: white;
+  font-size: 80px;
+  text-align: center;
+}
+
+.fail-text {
+  font-family: 'Avenir Next', sans-serif;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 60%;
+  padding-top: 3rem;
+
+}
+
+.fail-reroute{
+  font-family: 'Avenir Next', sans-serif;
+  color: white;
+  font-weight: 700;
+
+}
+
+h2 {
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 40px;
+  margin: 0;
+  padding-top: 6rem;
+}
+
+h3 {
+  font-family: 'Avenir Next', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
 @media (min-width: 850px) {
   .home-container {
     text-align: center;
@@ -252,5 +302,4 @@
     width: 200;
     height: 200;
   }
-
 }

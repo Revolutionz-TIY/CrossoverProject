@@ -25,8 +25,8 @@ ReactDOM.render((
       <Route path="shop/:type" component={ShopTypePage} />
       <Route path="mywatch" component={MyWatchPage} />
       <Route path="cart" component={CartPage} />
-      <Route path="*" component={FailPage} />
     </Route>
+    <Route path="*" component={FailPage} />
   </Router>
 </IntlProvider>
 ),
