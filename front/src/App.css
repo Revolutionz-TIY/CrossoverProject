@@ -1,26 +1,66 @@
+/**********App Page**********/
+
 .App {
-  text-align: center;
+  font-family: 'Avenir Next', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  background-color: #F6F7FB;
+  padding: 20px 0;
+  color: #090911;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.App-header-text{
+  text-decoration: none;
+}
+
+.App-header-text:visited{
+  color: #090911;
 }
 
 .App-intro {
   font-size: large;
 }
 
+.App-navigation {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-self: flex-end;
+}
+
+.App-navigation li {
+}
+
 .App-navigation-link {
   list-style: none;
-  color: lightblue;
+  color: #090911;
+  text-decoration: none;
+  background-color: #F6F7FB;
+  border: 1px solid #3A6683;
+  border-radius: 2px;
+  padding: 0.5rem 1rem;
 }
 
-.App-navigation-link {
-
+.App-navigation-link:hover {
+  transition: ease 0.3s;
+  color: #F6F7FB;
+  background-color: #3A6683;
 }
+
+/**********Home Page**********/
+
+.home-container{
+  text-align: center;
+}
+
+/**********About Page**********/
 
 .About-content {
   margin: 0 auto;
