@@ -28,9 +28,9 @@ We believe in open-source and building on ideas. If you have any ideas of improv
 
 ####Contact us
 
-* Erik Jakubowski - [GitHub!](/erikjakubowski)
+* Erik Jakubowski - [GitHub!](https://www.github.com/erikjakubowski)
 * Amal Abukar - [GitHub!](https://www.github.com/amalabukar)
-* Matthew Scofield - [GitHub!](@MScofield)
-* Jenessa White - [GitHub!](www.github.com/jenessawhite)
-* Bill Gottsch - [GitHub!](www.github.com/billgottsch)
+* Matthew Scofield - [GitHub!](https://www.github.com/MScofield)
+* Jenessa White - [GitHub!](https://www.github.com/jenessawhite)
+* Bill Gottsch - [GitHub!](https://www.github.com/billgottsch)
 
