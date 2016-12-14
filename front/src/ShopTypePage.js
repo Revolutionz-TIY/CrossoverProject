@@ -52,8 +52,16 @@ export default class ShopTypePage extends Component {
                 <button className="STPbuttons">Add to cart</button>
               </div>
               <div className="STP-footer">
-                
+
               </div>
+            {/* <div className="stuff">
+              <img src={result.image} style={{width: 300, height: 200 }} className="productImage" alt="product photo" role="presentation"/>
+              <ul className="list" key={result.id}>
+                <li>{result.name}</li>
+                <li>{result.description}</li>
+                <li>{result.price}</li>
+                <li>{result.type}</li>
+              </ul> */}
             </div>
           )
         })}
