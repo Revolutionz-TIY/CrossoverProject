@@ -22,14 +22,11 @@ export default class CartPage extends Component {
   getCart() {
     axios.get(api() + '/cart')
       .then((responseCart) => {
-        console.log(responseCart);
         axios.get(api() + '/products')
           .then((responseProducts) => {
-            console.log(responseProducts);
             var cartItems = responseProducts.data.filter((v) => {
               return  responseCart.data[''+v.id+''] > 0;
             });
-            console.log(cartItems);
             var ciwq = cartItems.map((v) => {
               var newItem = v;
               newItem.quantity = responseCart.data[''+v.id+''];
@@ -48,10 +45,8 @@ export default class CartPage extends Component {
 
   onRemoveClick(result, e) {
     e.preventDefault();
-    console.log(result.id);
     axios.post(api() + '/removeItem?itemId=' + result.id)
     .then((response) => {
-      console.log(response);
       this.getCart();
 
     }).catch((error) => {
@@ -65,6 +60,7 @@ export default class CartPage extends Component {
     return (
       <div>
         <Link to={'/shop'} className="STPbuttons">Continue Shopping</Link>
+        {this.state.results && this.state.results.length < 1 ? <p>Hey your cart is empty. Continue shopping, we'll be here when you're ready!</p> : null}
         {this.state.results.map((result, index) => {
           return (
             <div key={result.id} className="STP-container">

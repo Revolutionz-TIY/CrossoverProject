@@ -64,16 +64,69 @@
   background-color: #F6F7FB;
 }
 
+.home-featureboxes-textbutton {
+  background-color: #red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-featureboxes-text {
+  display: none;
+}
+
+.home-featureboxes-button {
+  background-color: #37375B;
+  color: #F6f7fb;
+  width: 100px;
+  text-decoration: none;
+  padding: 0.5rem;
+  align-self: center;
+
+}
+
+.home-featureboxes-button:hover {
+  background-color: #F6f7fb;
+  color: #37375B;
+}
+
 .home-featureboxes-1 {
+  border-top: 0.5px solid #3A6682;
+  border-left: 0.5px solid #3A6682;
+  border-right:  0.5px solid #3A6682;
   border-bottom: 5px solid #3A6682;
+  margin-bottom: 2rem;
+}
+
+.home-featureboxes-img1 {
+  width: 100%;
+  height: 100%;
 }
 
 .home-featureboxes-2 {
+  border-top: 0.5px solid #37375B;
+  border-left: 0.5px solid #37375B;
+  border-right:  0.5px solid #37375B;
   border-bottom: 5px solid #37375B;
+  margin-bottom: 2rem;
+}
+
+.home-featureboxes-img2 {
+  width: 100%;
+  height: 100%;
 }
 
 .home-featureboxes-3 {
+  border-top: 0.5px solid #0A1322;
+  border-left: 0.5px solid #0A1322;
+  border-right:  0.5px solid #0A1322;
   border-bottom: 5px solid #0A1322;
+  margin-bottom: 2rem;
+}
+
+.home-featureboxes-img3 {
+  width: 100%;
+  height: 100%;
 }
 
 /**********About Page**********/
@@ -151,4 +204,53 @@
   max-height: 32px;
   text-align: center;
   color:#F6F7FB;
+}
+
+@media (min-width: 850px) {
+  .home-container {
+    text-align: center;
+  }
+
+  .home-featureboxes {
+    background-color: #F6F7FB;
+  }
+
+  .home-featureboxes-textbutton {
+    background-color: #fff;
+  }
+
+  .home-featureboxes-text {
+    display: flex;
+  }
+
+  .home-featureboxes-1 {
+    border-bottom: 5px solid #3A6682;
+    width: 470px;
+  }
+
+  .home-featureboxes-img1 {
+    width: 400;
+    height: 400;
+  }
+
+  .home-featureboxes-2 {
+    border-bottom: 5px solid #37375B;
+    width: 470px;
+  }
+
+  .home-featureboxes-img2 {
+    width: 200;
+    height: 200;
+  }
+
+  .home-featureboxes-3 {
+    border-bottom: 5px solid #0A1322;
+    width: 470px;
+  }
+
+  .home-featureboxes-img3 {
+    width: 200;
+    height: 200;
+  }
+
 }

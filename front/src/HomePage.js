@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
-import {packagephoto} from './images/family.jpg';
-import {watchesphoto} from './images/menswatch.jpg';
-import {patphoto} from './images/patphoto.jpg';
+// import {packagephoto} from './images/family.jpg';
+// import {watchesphoto} from './images/menswatch.jpg';
+// import {patphoto} from './images/patphoto.jpg';
 import './App.css';
 
 export default class HomePage extends Component {
@@ -22,24 +22,24 @@ export default class HomePage extends Component {
         </div>
         <div className="home-featureboxes">
           <div className="home-featureboxes-1">
-            <img src={packagephoto} style={{width: 200, height: 200}} role="presentation"/>
-            <div>
-              <p>Our base packages of the most important things.</p>
-              <Link to={'/shop'} className="STPbuttons">Shop Now</Link>
+              <img src='http://i.imgur.com/dkDadf7.jpg' className="home-featureboxes-img1" alt="Packages"/>
+            <div className="home-featureboxes-textbutton">
+              <p className="home-featureboxes-text">Our base packages of the most important things.</p>
+              <Link to={'/shop'}  className="home-featureboxes-button">Shop Now</Link>
             </div>
           </div>
           <div className="home-featureboxes-2">
-            <img src={watchesphoto} style={{width: 200, height: 200}} role="presentation"/>
-            <div>
-              <p>Watches so that you never lose track.</p>
-              <Link to={'/shop'} className="STPbuttons">Shop Now</Link>
+            <img src='http://i.imgur.com/Vqcv9Cv.jpg' className="home-featureboxes-img2" alt="Watches"/>
+            <div className="home-featureboxes-textbutton">
+              <p className="home-featureboxes-text">Watches so that you never lose track.</p>
+              <Link to={'/shop'} className="home-featureboxes-button">Shop Now</Link>
             </div>
           </div>
           <div className="home-featureboxes-3">
-            <img src={patphoto} style={{width: 200, height: 200}} role="presentation"/>
-            <div>
-              <p>Have your own idea about where you want to go?</p>
-              <Link to={'/shop'} className="STPbuttons">Shop Now</Link>
+            <img src='http://www.usnews.com/cmsmedia/65/e7/1a2e03544c1b9252474423d335ab/160223-timetravel-stock.jpg' className="home-featureboxes-img3" alt="P-A-T"/>
+            <div className="home-featureboxes-textbutton">
+              <p className="home-featureboxes-text">Have your own idea about where you want to go?</p>
+              <Link to={'/shop'} className="home-featureboxes-button">Shop Now</Link>
             </div>
           </div>
 
