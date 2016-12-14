@@ -61,17 +61,12 @@ public class Main {
         Spark.post(
                 "/api/addItem",
                 (((request, response) -> {
-                    int itemIdInt;
                     String itemId = request.queryParams("itemId");
                     if (itemId == null){
                         throw new Exception("don't talk back");
                     }
-                    itemIdInt = Integer.parseInt(itemId);
 
 
-
-
-//                    product = new Products(id,name, description, price, image, type);
 
                     cart.put(itemId, 1);
 
@@ -92,16 +87,16 @@ public class Main {
                 }))
         );
 
-//        Spark.get(
-//                "/api/user",
-//                (((request, response) -> {
-//                    //create object
-//                    //request params
-//                    JsonSerializer serializer = new JsonSerializer();
-//                    String json = serializer.include("*").serialize(product);
-//                    return json;
-//                }))
-//        );
+        Spark.get(
+                "/api/user",
+                (((request, response) -> {
+                    //create object
+                    //request params
+                    JsonSerializer serializer = new JsonSerializer();
+                    String json = serializer.include("*").serialize(product);
+                    return json;
+                }))
+        );
 
 
 
@@ -128,23 +123,17 @@ public class Main {
                 "/changeQuant",
                 (((request, response) -> {
 
-                    String id = request.queryParams("tagName");
+                    String id = request.queryParams("itemId");
 
-                    if(id == null){
+                    String amount = request.queryParams("itemAmount");
+
+                    if(amount == null||id == null){
                         throw new Exception();
                     }
 
-                    int a = Integer.parseInt(id);
+                    int a = Integer.parseInt(amount);
 
-
-
-                    String newQuant = request.queryParams("quant");
-                    int quant = Integer.parseInt(newQuant);
-
-//                    cart.add(a);
-//                    cart.add(quant);
-
-
+                    cart.put(id, a);
 
                     return "";
                 }))
