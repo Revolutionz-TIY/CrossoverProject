@@ -35,3 +35,58 @@
 .About-text {
   color: #091421;
 }
+
+/**********ShopType Page**********/
+
+.STP-content {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+
+.STP-image {
+  width: 100%;
+  height: 50%;
+  margin-right: 2rem;
+  padding: 0;
+  margin:0;
+}
+
+.STP-header {
+  display:flex;
+  justify-content: space-between;
+  margin: 1rem 1rem 0 1rem;
+}
+
+.STP-name {
+  font-size: 24px;
+}
+
+.STP-price {
+  font-size:24px;
+}
+
+.STP-list {
+  display:flex;
+  justify-content: space-between;
+  font-size: 16px;
+  margin: 2rem 1rem 0 1rem;
+  padding: 0;
+  text-align: left;
+}
+
+.STP-description {
+  margin: 0;
+  padding: 0;
+  display:flex;
+  width: 50%;
+}
+
+.STPbuttons {
+  background: #3A6682;
+  border:none;
+  min-height:32px;
+  max-height: 32px;
+  text-align: center;
+  color:#F6F7FB;
+}
