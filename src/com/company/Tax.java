@@ -4,21 +4,24 @@ package com.company;
  * Created by erikjakubowski on 12/13/16.
  */
 public class Tax {
-    String rate;
+    double rate;
     String name;
     String type;
 
-    public Tax(String rate, String name, String type) {
+    public Tax(double rate, String name, String type) {
         this.rate = rate;
         this.name = name;
         this.type = type;
     }
 
-    public String getRate() {
+    public Tax() {
+    }
+
+    public double getRate() {
         return rate;
     }
 
-    public void setRate(String rate) {
+    public void setRate(double rate) {
         this.rate = rate;
     }
 
