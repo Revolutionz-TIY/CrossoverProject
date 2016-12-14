@@ -13,6 +13,7 @@ export default class ShopTypePage extends Component {
     super (props)
     this.state = {
       results: [],
+      id: '',
       api: api()
     }
   }
@@ -32,12 +33,26 @@ export default class ShopTypePage extends Component {
           return v.type.toLowerCase().trim() === this.props.params.type
         } );
         this.setState ({
-          results: newResults,
+          results: newResults
         })
+        console.log(newResults);
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch((error) => {
+        console.error(error);
       });
+  }
+
+  onAddClick(result, e) {
+    e.preventDefault();
+    console.log(result.id);
+    axios.post(api() + '/addItem?itemId=' + result.id)
+    .then((response) => {
+      console.log(response);
+
+    }).catch((error) => {
+      console.error(error);
+    })
+
   }
 
   render() {
@@ -55,12 +70,12 @@ export default class ShopTypePage extends Component {
                     id={result.id}
                     defaultMessage={`\${price, number}`}
                     values={{price: result.price}}
-                />
+                    />
                   </span>
                 </div>
                 <div className="STP-list">
                   <p className="STP-description">{result.description}</p>
-                  <button className="STPbuttons">Add to cart</button>
+                  <button className="STPbuttons" name='itemId' onClick={this.onAddClick.bind(this, result)} >Add to cart</button>
                 </div>
                 <div className="STP-footer">
 

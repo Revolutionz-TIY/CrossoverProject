@@ -11,10 +11,8 @@ export default class ShopPage extends Component {
   render() {
     return (
       <div>
-        <div>
           <StoreNavigation />
           {this.props.children}
-        </div>
       </div>
 
     );

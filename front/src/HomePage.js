@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router';
+import {packagephoto} from './images/family.jpg';
+import {watchesphoto} from './images/menswatch.jpg';
+import {patphoto} from './images/patphoto.jpg';
 import './App.css';
 
 export default class HomePage extends Component {
@@ -10,13 +14,27 @@ export default class HomePage extends Component {
   render() {
     return (
       <div className="home-container">
-        <h2>Welcome to Revolutionz</h2>
-        <p>
-          We’re doing a lot of typing in this little space here.
-          I love adding random filler to the project! It never
-          actually makes sense when you put it here, but
-          some day it will say something worth while.
-        </p>
+        <div className="home-welcome-wrapper">
+          <h2>Welcome to Revolutionz</h2>
+          <p>
+            Have you ever woken up and wished you had more time to get your assignment done, had just a few more days to finish something at work, or even had a few more hours just to spend with you family? We've all had those moments that we hoped never ended. Well now you can do something about it!
+          </p>
+        </div>
+        <div className="home-featureboxes">
+          <div className="home-featureboxes-1">
+            <img src={packagephoto} style={{width: 200, height: 200}} role="presentation"/>
+            <Link to={'/shop'} className="STPbuttons">Shop Now</Link>
+          </div>
+          <div className="home-featureboxes-2">
+            <img src={watchesphoto} style={{width: 200, height: 200}} role="presentation"/>
+            <Link to={'/shop'} className="STPbuttons">Shop Now</Link>
+          </div>
+          <div className="home-featureboxes-3">
+            <img src={patphoto} style={{width: 200, height: 200}} role="presentation"/>
+            <Link to={'/shop'} className="STPbuttons">Shop Now</Link>
+          </div>
+
+        </div>
       </div>
     );
   }
