@@ -30,8 +30,8 @@ We believe in open-source and building on ideas. If you have any ideas of improv
 
 GitHub:
 
-* [Erik Jakubowski - erikjakubowski](https://github.com/erikjakubowski)
-* [Amal Abukar - amalabukar](https://github.com/amalabukar)
-* [Matthew Scofield - MScofield](https://github.com/MScofield)
-* [Jenessa White - jenessawhite](https://github.com/jenessawhite)
-* [Bill Gottsch - billgottsch](https://github.com/billgottsch)
+* Erik Jakubowski - [GitHub!](www.github.com/erikjakubowski)
+* Amal Abukar - [GitHub!](www.github.com/amalabukar)
+* Matthew Scofield - [GitHub!](www.github.com/MScofield)
+* Jenessa White - [GitHub!](www.github.com/jenessawhite)
+* Bill Gottsch - [GitHub!](www.github.com/billgottsch)

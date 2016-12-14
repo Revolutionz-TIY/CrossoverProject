@@ -4,28 +4,22 @@ package com.company;
  * Created by erikjakubowski on 12/12/16.
  */
 public class Products {
-    String id;
+    int id;
     String name;
     String description;
-    String price;
+    double price;
     String image;
     String type;
 
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public Products() {
+    }
+
+    public void setId(int id) {
         this.id = id;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
     }
 
     public String getName() {
@@ -44,6 +38,13 @@ public class Products {
         this.description = description;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
     public String getImage() {
         return image;
@@ -61,11 +62,7 @@ public class Products {
         this.type = type;
     }
 
-    //public class com.company.Products{
-
-    //}
-
-    public Products(String id, String name, String description, String price, String image, String type) {
+    public Products(int id, String name, String description, double price, String image, String type) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -74,3 +71,4 @@ public class Products {
         this.type = type;
     }
 }
+
