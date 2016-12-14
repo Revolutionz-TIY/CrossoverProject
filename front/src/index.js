@@ -20,9 +20,7 @@ ReactDOM.render((
       <IndexRoute component={HomePage} />
       <Route path="about" component={AboutPage} />
       <Route path="shop" component={ShopPage} />
-      <Route path="shop/:type" component={ShopTypePage}>
-        {/* <Route path="shop/:type/:id" component={ItemPage} /> */}
-      </Route>
+      <Route path="shop/:type" component={ShopTypePage}/>
       <Route path="mywatch" component={MyWatchPage} />
       <Route path="*" component={FailPage} />
     </Route>

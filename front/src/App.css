@@ -56,8 +56,12 @@
 
 /**********Home Page**********/
 
-.home-container{
+.home-container {
   text-align: center;
+}
+
+.home-featureboxes {
+  background-color: #F6F7FB;
 }
 
 /**********About Page**********/

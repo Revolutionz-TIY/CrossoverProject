@@ -9,6 +9,7 @@ export default class ShopTypePage extends Component {
     super (props)
     this.state = {
       results: [],
+      id: '',
       api: api()
     }
   }
@@ -23,17 +24,29 @@ export default class ShopTypePage extends Component {
       .then((response) => {
         console.log(response);
         let newResults = response.data.slice(0).filter((v) => {
-          console.log(v.type.toLowerCase());
-          console.log(this.props.params.type);
           return v.type.toLowerCase().trim() === this.props.params.type
         } );
         this.setState ({
-          results: newResults,
+          results: newResults
         })
+        console.log(newResults);
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch((error) => {
+        console.error(error);
       });
+  }
+
+  onAddClick(result, e) {
+    e.preventDefault();
+    console.log(result.id);
+    axios.post(api() + '/addItem?itemId=' + result.id)
+    .then((response) => {
+      console.log(response);
+
+    }).catch((error) => {
+      console.error(error);
+    })
+
   }
 
   render() {
@@ -43,14 +56,14 @@ export default class ShopTypePage extends Component {
           console.log(result);
           return (
             <div className="STP-container">
-              <div className="STP-content">
+              <div className="STP-content" key={result.id}>
                 <img className="STP-image" src={result.image} role="presentation"></img>
-                <div className="STP-header" key={result.id}>
+                <div className="STP-header">
                   <span className="STP-name">{result.name}</span><span className="STP-price">${result.price}</span>
                 </div>
                 <div className="STP-list">
                   <p className="STP-description">{result.description}</p>
-                  <button className="STPbuttons">Add to cart</button>
+                  <button className="STPbuttons" name='itemId' onClick={this.onAddClick.bind(this, result)} >Add to cart</button>
                 </div>
                 <div className="STP-footer">
 
