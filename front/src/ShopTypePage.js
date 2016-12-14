@@ -51,6 +51,7 @@ export default class ShopTypePage extends Component {
 
     }).catch((error) => {
       console.error(error);
+
     })
 
   }
@@ -67,7 +68,7 @@ export default class ShopTypePage extends Component {
                 <div className="STP-header" key={result.id}>
                   <span className="STP-name">{result.name}</span><span className="STP-price">
                     <FormattedMessage
-                    id={result.id}
+                    id={"+result.id+"}
                     defaultMessage={`\${price, number}`}
                     values={{price: result.price}}
                     />

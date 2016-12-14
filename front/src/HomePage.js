@@ -23,15 +23,24 @@ export default class HomePage extends Component {
         <div className="home-featureboxes">
           <div className="home-featureboxes-1">
             <img src={packagephoto} style={{width: 200, height: 200}} role="presentation"/>
-            <Link to={'/shop'} className="STPbuttons">Shop Now</Link>
+            <div>
+              <p>Our base packages of the most important things.</p>
+              <Link to={'/shop'} className="STPbuttons">Shop Now</Link>
+            </div>
           </div>
           <div className="home-featureboxes-2">
             <img src={watchesphoto} style={{width: 200, height: 200}} role="presentation"/>
-            <Link to={'/shop'} className="STPbuttons">Shop Now</Link>
+            <div>
+              <p>Watches so that you never lose track.</p>
+              <Link to={'/shop'} className="STPbuttons">Shop Now</Link>
+            </div>
           </div>
           <div className="home-featureboxes-3">
             <img src={patphoto} style={{width: 200, height: 200}} role="presentation"/>
-            <Link to={'/shop'} className="STPbuttons">Shop Now</Link>
+            <div>
+              <p>Have your own idea about where you want to go?</p>
+              <Link to={'/shop'} className="STPbuttons">Shop Now</Link>
+            </div>
           </div>
 
         </div>

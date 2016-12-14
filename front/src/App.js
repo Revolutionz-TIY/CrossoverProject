@@ -21,9 +21,7 @@ export default class App extends Component {
   getItems() {
     axios.get(api() + '/products')
       .then((response) => {
-        console.log(response);
         let newResults = response.data.slice(0);
-        console.log(newResults);
         this.setState ({
           results: newResults,
         })
@@ -37,6 +35,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
+          <Link to={'/cart'} className="cartButton">Cart</Link>
           <h1><Link to={'/'} className="App-header-text">Revolutionz</Link></h1>
           <div>
             <ul className="App-navigation">

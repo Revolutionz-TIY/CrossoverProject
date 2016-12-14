@@ -64,6 +64,18 @@
   background-color: #F6F7FB;
 }
 
+.home-featureboxes-1 {
+  border-bottom: 5px solid #3A6682;
+}
+
+.home-featureboxes-2 {
+  border-bottom: 5px solid #37375B;
+}
+
+.home-featureboxes-3 {
+  border-bottom: 5px solid #0A1322;
+}
+
 /**********About Page**********/
 
 .About-content {

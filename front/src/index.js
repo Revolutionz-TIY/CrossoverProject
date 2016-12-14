@@ -7,6 +7,7 @@ import AboutPage from './AboutPage';
 import ShopPage from './ShopPage';
 import MyWatchPage from './MyWatchPage';
 import FailPage from './FailPage';
+import CartPage from './CartPage';
 import ShopTypePage from './ShopTypePage';
 import { IntlProvider } from 'react-intl';
 
@@ -23,6 +24,7 @@ ReactDOM.render((
       <Route path="shop" component={ShopPage} />
       <Route path="shop/:type" component={ShopTypePage} />
       <Route path="mywatch" component={MyWatchPage} />
+      <Route path="cart" component={CartPage} />
       <Route path="*" component={FailPage} />
     </Route>
   </Router>
