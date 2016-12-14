@@ -37,7 +37,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h1><Link to={'/'}>Revolutionz</Link></h1>
+          <h1><Link to={'/'} className="App-header_text">Revolutionz</Link></h1>
           <div>
             <ul className="App-navigation">
               <li><Link to={'/about'} className="App-navigation-link">About</Link></li>

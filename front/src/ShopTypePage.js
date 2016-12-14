@@ -41,12 +41,12 @@ export default class ShopTypePage extends Component {
           console.log(result);
           return (
             <div className="stuff">
+              <img src={result.image} style={{width: 300, height: 200 }} className="productImage" alt="product photo" role="presentation"/>
               <ul className="list" key={result.id}>
                 <li>{result.name}</li>
                 <li>{result.description}</li>
                 <li>{result.price}</li>
                 <li>{result.type}</li>
-                <li>{result.image}</li>
               </ul>
             </div>
           )
