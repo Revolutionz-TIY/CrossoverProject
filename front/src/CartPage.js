@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router';
 import axios from 'axios';
 import { FormattedMessage } from 'react-intl';
+require('round10').polyfill();
 import api from './Api.js'
 import './App.css';
 import './ionicons.css';
@@ -69,7 +70,7 @@ export default class CartPage extends Component {
       .then((response) => {
         console.log(response.data.totalRate);
         let newTaxRate = response.data.totalRate/100;
-        let taxAmount = newTaxRate * this.state.subtotal;
+        let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
         let newTotal = taxAmount + this.state.subtotal
         this.setState({
           isFormShown: !this.state.isFormShown,
@@ -96,7 +97,7 @@ export default class CartPage extends Component {
       .then((response) => {
         console.log(response.data.totalRate);
         let newTaxRate = response.data.totalRate/100;
-        let taxAmount = newTaxRate * this.state.subtotal;
+        let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
         let newTotal = taxAmount + this.state.subtotal
         this.setState({
           isFormShown: !this.state.isFormShown,
@@ -123,7 +124,7 @@ export default class CartPage extends Component {
       .then((response) => {
         console.log(response.data.totalRate);
         let newTaxRate = response.data.totalRate/100;
-        let taxAmount = newTaxRate * this.state.subtotal;
+        let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
         let newTotal = taxAmount + this.state.subtotal
         this.setState({
           isFormShown: !this.state.isFormShown,
@@ -154,7 +155,7 @@ export default class CartPage extends Component {
     .then((response) => {
       console.log(response.data.totalRate);
       let newTaxRate = response.data.totalRate/100;
-      let taxAmount = newTaxRate * this.state.subtotal;
+      let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
       let newTotal = taxAmount + this.state.subtotal
       this.setState({
         isFormShown: !this.state.isFormShown,
@@ -225,10 +226,6 @@ export default class CartPage extends Component {
           <div className="cartTotal-subtotal">
             Subtotal: ${this.state.subtotal}
           </div>
-          {/* <form className="cartTotal-form" onSubmit={this.getTax.bind(this)}>
-            <span>Enter your Zipcode: </span>
-            <input type='text' className="cartTotal-zipcode" placeholder='Enter your Zipcode'  onChange={this.onNewValue.bind(this)} value={this.state.newZipValue}></input>
-          </form> */}
           {taxForm}<span><button className="searchInput button" onClick={this.onShowTaxes.bind(this)}>Get Taxes</button></span>
           {taxInfo}
           <div className="cartTotal-subtotal">
