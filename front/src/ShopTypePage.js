@@ -23,7 +23,6 @@ export default class ShopTypePage extends Component {
   componentDidMount() {
     this.getItems();
   }
-
   getItems() {
     axios.get(api() + '/products')
       .then((response) => {
