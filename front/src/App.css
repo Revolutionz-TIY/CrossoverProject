@@ -358,6 +358,27 @@ h2 {
   text-decoration: none;
 }
 
+/***************Checkout Page*****************/
+
+.CheckoutPage {
+  font-family: 'Avenir Next', sans-serif;
+  text-align: center;
+}
+
+.Checkout-title {
+  color: #37375b;
+  text-shadow: 1px;
+}
+
+.Checkout-text {
+ color:#09090F;
+}
+
+.Checkout-reroute {
+  text-decoration: none;
+  font-weight: 600;
+  color: #09090F;
+}
 /****************MEDIA QUERIES****************/
 
 @media (min-width: 850px) {

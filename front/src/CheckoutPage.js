@@ -11,15 +11,15 @@ export default class FailPage extends Component {
   render() {
     return (
       <div className="CheckoutPage">
-        <div className="checkout-text">
-          <h2> Thank you for your order!</h2>
-            Enjoy your trip and we'll see you when you get back. There's always more time for another vacation!
-            <span className="checkout-text">
-              <Link to={'/'}  className="checkout-reroute">Homepage</Link>
-            </span>
-        </div>
-
-    </div>
+        <h2 className="Checkout-title"> Thank you for your order!</h2>
+        <p className="Checkout-text">Enjoy your trip and we'll see you when you get back. There's always time for another vacation!</p>
+        <br />
+        <span className="Checkout-text">Click</span>
+        <span className="Checkout-text">
+          <Link to={'/'}  className="Checkout-reroute"> here </Link>
+        </span>
+        <span className="Checkout-text">to get back to shopping!</span>
+      </div>
     );
   }
 }
