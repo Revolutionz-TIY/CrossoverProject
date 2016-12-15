@@ -68,7 +68,6 @@ export default class CartPage extends Component {
       this.getCart();
       axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
       .then((response) => {
-        console.log(response.data.totalRate);
         let newTaxRate = response.data.totalRate/100;
         let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
         let newTotal = taxAmount + this.state.subtotal
@@ -78,7 +77,6 @@ export default class CartPage extends Component {
           tax: taxAmount,
           total: newTotal
         })
-        console.log(this.state.taxRate);
       })
       .catch((err) => {
         console.error(err);
@@ -95,7 +93,6 @@ export default class CartPage extends Component {
       this.getCart();
       axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
       .then((response) => {
-        console.log(response.data.totalRate);
         let newTaxRate = response.data.totalRate/100;
         let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
         let newTotal = taxAmount + this.state.subtotal
@@ -105,7 +102,6 @@ export default class CartPage extends Component {
           tax: taxAmount,
           total: newTotal
         })
-        console.log(this.state.taxRate);
       })
       .catch((err) => {
         console.error(err);
@@ -122,7 +118,6 @@ export default class CartPage extends Component {
       this.getCart();
       axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
       .then((response) => {
-        console.log(response.data.totalRate);
         let newTaxRate = response.data.totalRate/100;
         let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
         let newTotal = taxAmount + this.state.subtotal
@@ -132,7 +127,6 @@ export default class CartPage extends Component {
           tax: taxAmount,
           total: newTotal
         })
-        console.log(this.state.taxRate);
       })
       .catch((err) => {
         console.error(err);
@@ -143,7 +137,6 @@ export default class CartPage extends Component {
   }
 
   onNewValue(e) {
-    console.log(e.target.value);
    this.setState({
      zipcode: e.target.value
    });
@@ -153,7 +146,6 @@ export default class CartPage extends Component {
     e.preventDefault();
     axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
     .then((response) => {
-      console.log(response.data.totalRate);
       let newTaxRate = response.data.totalRate/100;
       let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
       let newTotal = taxAmount + this.state.subtotal
@@ -163,7 +155,6 @@ export default class CartPage extends Component {
         tax: taxAmount,
         total: newTotal
       })
-      console.log(this.state.taxRate);
     })
     .catch((err) => {
       console.error(err);
