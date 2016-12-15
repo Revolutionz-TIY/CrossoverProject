@@ -60,22 +60,22 @@ export default class CartPage extends Component {
 
   onAdd1Click(result, e) {
     e.preventDefault();
-    // axios.post(api() + '/removeItem?itemId=' + result.id)
-    // .then((response) => {
-    //   this.getCart();
-    // }).catch((error) => {
-    //   console.error(error);
-    // })
+    axios.post(api() + '/changeQuant?itemId=' + result.id + '&itemAmount=' + (result.quantity + 1))
+    .then((response) => {
+      this.getCart();
+    }).catch((error) => {
+      console.error(error);
+    })
   }
 
   onRemove1Click(result, e) {
     e.preventDefault();
-    // axios.post(api() + '/removeItem?itemId=' + result.id)
-    // .then((response) => {
-    //   this.getCart();
-    // }).catch((error) => {
-    //   console.error(error);
-    // })
+    axios.post(api() + '/changeQuant?itemId=' + result.id + '&itemAmount=' + (result.quantity - 1))
+    .then((response) => {
+      this.getCart();
+    }).catch((error) => {
+      console.error(error);
+    })
   }
 
   onFormSubmit(e) {
