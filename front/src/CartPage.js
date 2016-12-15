@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router';
 import axios from 'axios';
 import { FormattedMessage } from 'react-intl';
+require('round10').polyfill();
 import api from './Api.js'
 import './App.css';
 import './ionicons.css';
@@ -65,6 +66,23 @@ export default class CartPage extends Component {
     axios.post(api() + '/removeItem?itemId=' + result.id)
     .then((response) => {
       this.getCart();
+      axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
+      .then((response) => {
+        console.log(response.data.totalRate);
+        let newTaxRate = response.data.totalRate/100;
+        let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
+        let newTotal = taxAmount + this.state.subtotal
+        this.setState({
+          isFormShown: !this.state.isFormShown,
+          taxRate: newTaxRate,
+          tax: taxAmount,
+          total: newTotal
+        })
+        console.log(this.state.taxRate);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
     }).catch((err) => {
       console.error(err);
     })
@@ -75,6 +93,23 @@ export default class CartPage extends Component {
     axios.post(api() + '/changeQuant?itemId=' + result.id + '&itemAmount=' + (result.quantity + 1))
     .then((response) => {
       this.getCart();
+      axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
+      .then((response) => {
+        console.log(response.data.totalRate);
+        let newTaxRate = response.data.totalRate/100;
+        let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
+        let newTotal = taxAmount + this.state.subtotal
+        this.setState({
+          isFormShown: !this.state.isFormShown,
+          taxRate: newTaxRate,
+          tax: taxAmount,
+          total: newTotal
+        })
+        console.log(this.state.taxRate);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
     }).catch((err) => {
       console.error(err);
     })
@@ -85,6 +120,23 @@ export default class CartPage extends Component {
     axios.post(api() + '/changeQuant?itemId=' + result.id + '&itemAmount=' + (result.quantity - 1))
     .then((response) => {
       this.getCart();
+      axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
+      .then((response) => {
+        console.log(response.data.totalRate);
+        let newTaxRate = response.data.totalRate/100;
+        let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
+        let newTotal = taxAmount + this.state.subtotal
+        this.setState({
+          isFormShown: !this.state.isFormShown,
+          taxRate: newTaxRate,
+          tax: taxAmount,
+          total: newTotal
+        })
+        console.log(this.state.taxRate);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
     }).catch((err) => {
       console.error(err);
     })
@@ -103,7 +155,7 @@ export default class CartPage extends Component {
     .then((response) => {
       console.log(response.data.totalRate);
       let newTaxRate = response.data.totalRate/100;
-      let taxAmount = newTaxRate * this.state.subtotal;
+      let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
       let newTotal = taxAmount + this.state.subtotal
       this.setState({
         isFormShown: !this.state.isFormShown,
@@ -174,15 +226,11 @@ export default class CartPage extends Component {
           <div className="cartTotal-subtotal">
             Subtotal: ${this.state.subtotal}
           </div>
-          {/* <form className="cartTotal-form" onSubmit={this.getTax.bind(this)}>
-            <span>Enter your Zipcode: </span>
-            <input type='text' className="cartTotal-zipcode" placeholder='Enter your Zipcode'  onChange={this.onNewValue.bind(this)} value={this.state.newZipValue}></input>
-          </form> */}
-          {!this.state.isFormShown ? taxInfo : taxForm}
+          {taxForm}<span><button className="searchInput button" onClick={this.onShowTaxes.bind(this)}>Get Taxes</button></span>
+          {taxInfo}
           <div className="cartTotal-subtotal">
             Total: ${this.state.total}
           </div>
-          <button className="searchInput button" onClick={this.onShowTaxes.bind(this)}>Get Taxes</button>
         </div>
         <div className="checkout-button-container">
           <Link to={'/checkout'} className="checkout-button">Checkout</Link>
