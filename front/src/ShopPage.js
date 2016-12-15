@@ -51,33 +51,30 @@ export default class ShopPage extends Component {
     return (
       <div>
           <StoreNavigation />
+          <div className="STP-all">
           {this.state.results.map((result, index) => {
             return (
               <div key={result.id} className="STP-container">
-                <div className="STP-content">
-                  <img className="STP-image" src={result.image} role="presentation"></img>
-                  <div className="STP-header" key={result.id}>
-                    <span className="STP-name">{result.name}</span><span className="STP-price">
-                      <FormattedMessage
-                      id={"+result.id+"}
-                      defaultMessage={`\${price, number}`}
-                      values={{price: result.price}}
-                      />
-                    </span>
-                  </div>
-                  <div className="STP-list">
-                    <p className="STP-description">{result.description}</p>
-                    <button className="STPbuttons" name='itemId' onClick={this.onAddClick.bind(this, result)} >Add to cart</button>
-                  </div>
-                  <div className="STP-footer">
-
-                  </div>
-
+                <img className="STP-image" src={result.image} role="presentation"></img>
+                <div className="STP-header" key={result.id}>
+                  <span className="STP-name">{result.name}</span><span className="STP-price">
+                    <FormattedMessage
+                    id={"+result.id+"}
+                    defaultMessage={`\${price, number}`}
+                    values={{price: result.price}}
+                    />
+                  </span>
+                </div>
+                <div className="STP-list">
+                  <p className="STP-description">{result.description}</p>
+                  <button className="STPbuttons" name='itemId' onClick={this.onAddClick.bind(this, result)} >Add to cart</button>
+                </div>
+                <div className="STP-footer">
                 </div>
               </div>
             )
           })}
-
+        </div>
       </div>
 
     );

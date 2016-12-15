@@ -6,16 +6,26 @@
 }
 
 .App-header {
-  background-color: #F6F7FB;
+  /*background-color: #E0B1FB;*/
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e1d4fd+0,37375b+100 */
+  background: #e1d4fd; /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  #e1d4fd 0%, #37375b 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg,  #e1d4fd 0%,#37375b 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg,  #e1d4fd 0%,#37375b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1d4fd', endColorstr='#37375b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  border-bottom: 1px solid #37375B;
+  box-shadow: 0px 2px 3px #37375b;
   padding: 20px 0;
   color: #090911;
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 .App-header-text{
   text-decoration: none;
+  font-size: 34px;
 }
 
 .App-header-text:visited{
@@ -24,6 +34,10 @@
 
 .App-intro {
   font-size: large;
+}
+
+.App-nav-item{
+  width: 100px;
 }
 
 .App-navigation {
@@ -41,7 +55,7 @@
   color: #090911;
   text-decoration: none;
   background-color: #F6F7FB;
-  border: 1px solid #3A6683;
+  border: 1px solid #37375B;
   border-radius: 2px;
   padding: 0.5rem 1rem;
   position: relative;
@@ -51,17 +65,17 @@
 .App-navigation-link:hover {
   transition: ease 0.3s;
   color: #F6F7FB;
-  background-color: #3A6683;
+  background-color: #37375B;
 }
 
 .App-navigation-item:active {
   color: #F6F7FB;
-  background-color: #3A6683;
+  background-color: #37375B;
 }
 
 .active {
   color: #F6F7FB;
-  background-color: #3A6683;
+  background-color: #37375B;
 }
 /**********Home Page**********/
 
@@ -179,23 +193,26 @@
 }
 
 /**********ShopType Page**********/
-.STP-container {
-
+.STP-all {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.STP-content {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 1rem;
+.STP-container {
   border-bottom: 3px solid #37375B;
-  margin-top: 2rem;
   box-shadow: 0px 3px 5px #37375B;
+  padding-bottom: 1rem;
+  margin: 1rem;
+  flex:1 2 40%;
+  flex-direction:row;
 }
 
 .STP-image {
   width: 100%;
-  height: 50%;
-  margin-right: 2rem;
   padding: 0;
   margin:0;
 }

@@ -30,8 +30,7 @@ export default class ShopTypePage extends Component {
       .then((response) => {
         let newResults = response.data.slice(0).filter((v) => {
           var currentProductsValue = v.type.toLowerCase().trim();
-          console.log(nextProps.params);
-          var nextParamsType = nextProps.params.type.split(',');
+          // var nextParamsType = nextProps.params.type.split(',');
           // 'package'
           // 'pat'
           // 'watches'
@@ -68,7 +67,7 @@ export default class ShopTypePage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="STP-all">
         <StoreNavigation />
         {this.state.results.map((result, index) => {
           return (
@@ -89,12 +88,9 @@ export default class ShopTypePage extends Component {
                   <p className="STP-description">{result.description}</p>
                   <button className="STPbuttons" name='itemId' onClick={this.onAddClick.bind(this, result)} >Add to cart</button>
                 </div>
-                <div className="STP-footer">
-
+                <div className="STP-footer"></div>
                 </div>
-
               </div>
-            </div>
           )
         })}
       </div>
