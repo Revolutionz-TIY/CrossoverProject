@@ -278,6 +278,8 @@ h2 {
 .cartPage {
   display: flex;
   flex-direction: column;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .cartReturn-button {

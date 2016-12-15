@@ -37,14 +37,23 @@ export default class CartPage extends Component {
               newItem.quantity = responseCart.data[''+v.id+''];
               return newItem;
             });
+            var itemsSubtotal = ciwq.map((item, index) => {
+              var itemSubtotal = item.quantity * item.price
+              return itemSubtotal;
+            });
+            console.log(itemsSubtotal);
+            var reducedSubtotal = itemsSubtotal.reduce(function(a, b) {
+              return a + b;
+            }, 0);
             this.setState ({
-              results: ciwq
+              results: ciwq,
+              subtotal: reducedSubtotal
             })
             console.log(ciwq);
           });
       })
-      .catch((error) => {
-        console.error(error);
+      .catch((err) => {
+        console.error(err);
       });
   }
 
@@ -53,8 +62,8 @@ export default class CartPage extends Component {
     axios.post(api() + '/removeItem?itemId=' + result.id)
     .then((response) => {
       this.getCart();
-    }).catch((error) => {
-      console.error(error);
+    }).catch((err) => {
+      console.error(err);
     })
   }
 
@@ -63,8 +72,8 @@ export default class CartPage extends Component {
     axios.post(api() + '/changeQuant?itemId=' + result.id + '&itemAmount=' + (result.quantity + 1))
     .then((response) => {
       this.getCart();
-    }).catch((error) => {
-      console.error(error);
+    }).catch((err) => {
+      console.error(err);
     })
   }
 
@@ -73,13 +82,40 @@ export default class CartPage extends Component {
     axios.post(api() + '/changeQuant?itemId=' + result.id + '&itemAmount=' + (result.quantity - 1))
     .then((response) => {
       this.getCart();
-    }).catch((error) => {
-      console.error(error);
+    }).catch((err) => {
+      console.error(err);
     })
   }
 
-  onFormSubmit(e) {
+  onNewValue(e) {
+   this.setState({
+     newZipValue: e.target.value
+   });
+  }
+
+  getSearchedInfo(e){
     e.preventDefault();
+    axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
+    .then((response) => {
+      console.log(response);
+      this.setState({
+        newZipValue: '',
+      })
+    })
+    .catch((error) => {
+      alert('We are currently can\'t find tax information for that zip code. Please try again later')
+    });
+  }
+
+  getTax(e) {
+    e.preventDefault();
+    axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.error(err);
+    })
   }
 
   render() {
@@ -121,9 +157,13 @@ export default class CartPage extends Component {
           <div className="cartTotal-subtotal">
             Subtotal: ${this.state.subtotal}
           </div>
-          <form className="cartTotal-form" onSubmit={this.onFormSubmit.bind(this)}>
+          <form className="cartTotal-form" onSubmit={this.getTax.bind(this)}>
             <span>Enter your Zipcode: </span>
             <input type='text' className="cartTotal-zipcode" placeholder='Enter your Zipcode'></input>
+          </form>
+          <form onSubmit={this.getSearchedInfo.bind(this)} className="App-search-form flex-inner">
+            <input  className="searchInput" type="text" placeholder="enter product name" onChange={this.onNewValue.bind(this)} value={this.state.newItemValue}/>
+            <button>Get Tax</button>
           </form>
           <div className="cartTotal-subtotal">
             Total: ${this.state.total}

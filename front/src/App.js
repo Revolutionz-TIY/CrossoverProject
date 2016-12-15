@@ -3,6 +3,7 @@ import axios from 'axios';
 import api from './Api.js'
 import { Link } from 'react-router';
 import './App.css';
+import './ionicons.css';
 
 
 export default class App extends Component {
@@ -35,7 +36,10 @@ export default class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <Link to={'/cart'} className="cartButton">Cart</Link>
+          <Link to={'/cart'} className="cartButton">
+            <i className="icon ion-ios-cart-outline"></i>
+            Cart
+          </Link>
           <h1><Link to={'/'} className="App-header-text">Revolutionz</Link></h1>
           <div>
             <ul className="App-navigation">
