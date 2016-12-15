@@ -16,7 +16,10 @@ export default class CartPage extends Component {
       api: api(),
       subtotal: 0,
       zipcode: '',
-      total: 0
+      tax: 0,
+      taxRate: 0,
+      total: 0,
+      isFormShown: true
     }
   }
 
@@ -88,37 +91,51 @@ export default class CartPage extends Component {
   }
 
   onNewValue(e) {
+    console.log(e.target.value);
    this.setState({
-     newZipValue: e.target.value
+     zipcode: e.target.value
    });
-  }
-
-  getSearchedInfo(e){
-    e.preventDefault();
-    axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
-    .then((response) => {
-      console.log(response);
-      this.setState({
-        newZipValue: '',
-      })
-    })
-    .catch((error) => {
-      alert('We are currently can\'t find tax information for that zip code. Please try again later')
-    });
   }
 
   getTax(e) {
     e.preventDefault();
     axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
     .then((response) => {
-      console.log(response);
+      console.log(response.data.totalRate);
+      let newTaxRate = response.data.totalRate/100;
+      let taxAmount = newTaxRate * this.state.subtotal;
+      let newTotal = taxAmount + this.state.subtotal
+      this.setState({
+        isFormShown: !this.state.isFormShown,
+        taxRate: newTaxRate,
+        tax: taxAmount,
+        total: newTotal
+      })
+      console.log(this.state.taxRate);
     })
     .catch((err) => {
       console.error(err);
     })
   }
 
+  onShowTaxes(e) {
+    e.preventDefault();
+    this.setState({
+      isFormShown: !this.state.isFormShown
+    })
+  }
+
   render() {
+    let taxForm =
+      <form className="cartTotal-form" onSubmit={this.getTax.bind(this)}>
+        <span>Enter your Zipcode: </span>
+        <input type='text' className="cartTotal-zipcode" placeholder='Enter your Zipcode'  onChange={this.onNewValue.bind(this)} value={this.state.newZipValue}></input>
+      </form>
+    let taxInfo =
+      <div className="cartTotal-tax">
+        <span>Taxes: ${this.state.tax}</span>
+      </div>
+
     return (
       <div className="cartPage">
         <Link to={'/shop'} className="cartReturn-button">Continue Shopping</Link>
@@ -157,17 +174,15 @@ export default class CartPage extends Component {
           <div className="cartTotal-subtotal">
             Subtotal: ${this.state.subtotal}
           </div>
-          <form className="cartTotal-form" onSubmit={this.getTax.bind(this)}>
+          {/* <form className="cartTotal-form" onSubmit={this.getTax.bind(this)}>
             <span>Enter your Zipcode: </span>
-            <input type='text' className="cartTotal-zipcode" placeholder='Enter your Zipcode'></input>
-          </form>
-          <form onSubmit={this.getSearchedInfo.bind(this)} className="App-search-form flex-inner">
-            <input  className="searchInput" type="text" placeholder="enter product name" onChange={this.onNewValue.bind(this)} value={this.state.newItemValue}/>
-            <button>Get Tax</button>
-          </form>
+            <input type='text' className="cartTotal-zipcode" placeholder='Enter your Zipcode'  onChange={this.onNewValue.bind(this)} value={this.state.newZipValue}></input>
+          </form> */}
+          {!this.state.isFormShown ? taxInfo : taxForm}
           <div className="cartTotal-subtotal">
             Total: ${this.state.total}
           </div>
+          <button className="searchInput button" onClick={this.onShowTaxes.bind(this)}>Get Taxes</button>
         </div>
 
       </div>
