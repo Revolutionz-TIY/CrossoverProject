@@ -16,7 +16,10 @@ export default class CartPage extends Component {
       api: api(),
       subtotal: 0,
       zipcode: '',
-      total: 0
+      tax: 0,
+      taxRate: 0,
+      total: 0,
+      isFormShown: true
     }
   }
 
@@ -37,14 +40,23 @@ export default class CartPage extends Component {
               newItem.quantity = responseCart.data[''+v.id+''];
               return newItem;
             });
+            var itemsSubtotal = ciwq.map((item, index) => {
+              var itemSubtotal = item.quantity * item.price
+              return itemSubtotal;
+            });
+            console.log(itemsSubtotal);
+            var reducedSubtotal = itemsSubtotal.reduce(function(a, b) {
+              return a + b;
+            }, 0);
             this.setState ({
-              results: ciwq
+              results: ciwq,
+              subtotal: reducedSubtotal
             })
             console.log(ciwq);
           });
       })
-      .catch((error) => {
-        console.error(error);
+      .catch((err) => {
+        console.error(err);
       });
   }
 
@@ -53,8 +65,8 @@ export default class CartPage extends Component {
     axios.post(api() + '/removeItem?itemId=' + result.id)
     .then((response) => {
       this.getCart();
-    }).catch((error) => {
-      console.error(error);
+    }).catch((err) => {
+      console.error(err);
     })
   }
 
@@ -63,8 +75,8 @@ export default class CartPage extends Component {
     axios.post(api() + '/changeQuant?itemId=' + result.id + '&itemAmount=' + (result.quantity + 1))
     .then((response) => {
       this.getCart();
-    }).catch((error) => {
-      console.error(error);
+    }).catch((err) => {
+      console.error(err);
     })
   }
 
@@ -73,16 +85,57 @@ export default class CartPage extends Component {
     axios.post(api() + '/changeQuant?itemId=' + result.id + '&itemAmount=' + (result.quantity - 1))
     .then((response) => {
       this.getCart();
-    }).catch((error) => {
-      console.error(error);
+    }).catch((err) => {
+      console.error(err);
     })
   }
 
-  onFormSubmit(e) {
+  onNewValue(e) {
+    console.log(e.target.value);
+   this.setState({
+     zipcode: e.target.value
+   });
+  }
+
+  getTax(e) {
     e.preventDefault();
+    axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
+    .then((response) => {
+      console.log(response.data.totalRate);
+      let newTaxRate = response.data.totalRate/100;
+      let taxAmount = newTaxRate * this.state.subtotal;
+      let newTotal = taxAmount + this.state.subtotal
+      this.setState({
+        isFormShown: !this.state.isFormShown,
+        taxRate: newTaxRate,
+        tax: taxAmount,
+        total: newTotal
+      })
+      console.log(this.state.taxRate);
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+  }
+
+  onShowTaxes(e) {
+    e.preventDefault();
+    this.setState({
+      isFormShown: !this.state.isFormShown
+    })
   }
 
   render() {
+    let taxForm =
+      <form className="cartTotal-form" onSubmit={this.getTax.bind(this)}>
+        <span>Enter your Zipcode: </span>
+        <input type='text' className="cartTotal-zipcode" placeholder='Enter your Zipcode'  onChange={this.onNewValue.bind(this)} value={this.state.newZipValue}></input>
+      </form>
+    let taxInfo =
+      <div className="cartTotal-tax">
+        <span>Taxes: ${this.state.tax}</span>
+      </div>
+
     return (
       <div className="cartPage">
         <Link to={'/shop'} className="cartReturn-button">Continue Shopping</Link>
@@ -121,13 +174,15 @@ export default class CartPage extends Component {
           <div className="cartTotal-subtotal">
             Subtotal: ${this.state.subtotal}
           </div>
-          <form className="cartTotal-form" onSubmit={this.onFormSubmit.bind(this)}>
+          {/* <form className="cartTotal-form" onSubmit={this.getTax.bind(this)}>
             <span>Enter your Zipcode: </span>
-            <input type='text' className="cartTotal-zipcode" placeholder='Enter your Zipcode'></input>
-          </form>
+            <input type='text' className="cartTotal-zipcode" placeholder='Enter your Zipcode'  onChange={this.onNewValue.bind(this)} value={this.state.newZipValue}></input>
+          </form> */}
+          {!this.state.isFormShown ? taxInfo : taxForm}
           <div className="cartTotal-subtotal">
             Total: ${this.state.total}
           </div>
+          <button className="searchInput button" onClick={this.onShowTaxes.bind(this)}>Get Taxes</button>
         </div>
         <div className="checkout-button-container">
           <Link to={'/checkout'} className="checkout-button">Checkout</Link>
