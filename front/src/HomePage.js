@@ -15,10 +15,20 @@ export default class HomePage extends Component {
     return (
       <div className="home-container">
         <div className="home-welcome-wrapper">
-          <h2>Welcome to Revolutionz</h2>
-          <p>
-            Have you ever woken up and wished you had more time to get your assignment done, had just a few more days to finish something at work, or even had a few more hours just to spend with you family? We've all had those moments that we hoped never ended. Well now you can do something about it!
+          <h3 className="home-welcome-title">Time wasted is no longer time lost...</h3>
+          <p className="home-welcome-text">
+            Have you ever woken up and wished you had more time to get your assignment done,
+            had a couple more days to finish something at work, or even had a few more hours
+            just to spend with your friends and family? We've all had those moments, but nothing could be done about it...until now!
           </p>
+          <p className="home-welcome-text">
+            We've specially crafted and engineered all of your memories of happiness,
+            those moments of regret or moments in history that have shaped the world to fit comfortably on your wrist.
+          </p>
+          <p className="home-time-text">
+            Time.
+          </p>
+
         </div>
         <div className="home-featureboxes">
           <div className="home-featureboxes-1">
