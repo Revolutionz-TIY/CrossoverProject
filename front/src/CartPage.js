@@ -65,6 +65,23 @@ export default class CartPage extends Component {
     axios.post(api() + '/removeItem?itemId=' + result.id)
     .then((response) => {
       this.getCart();
+      axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
+      .then((response) => {
+        console.log(response.data.totalRate);
+        let newTaxRate = response.data.totalRate/100;
+        let taxAmount = newTaxRate * this.state.subtotal;
+        let newTotal = taxAmount + this.state.subtotal
+        this.setState({
+          isFormShown: !this.state.isFormShown,
+          taxRate: newTaxRate,
+          tax: taxAmount,
+          total: newTotal
+        })
+        console.log(this.state.taxRate);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
     }).catch((err) => {
       console.error(err);
     })
@@ -75,6 +92,23 @@ export default class CartPage extends Component {
     axios.post(api() + '/changeQuant?itemId=' + result.id + '&itemAmount=' + (result.quantity + 1))
     .then((response) => {
       this.getCart();
+      axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
+      .then((response) => {
+        console.log(response.data.totalRate);
+        let newTaxRate = response.data.totalRate/100;
+        let taxAmount = newTaxRate * this.state.subtotal;
+        let newTotal = taxAmount + this.state.subtotal
+        this.setState({
+          isFormShown: !this.state.isFormShown,
+          taxRate: newTaxRate,
+          tax: taxAmount,
+          total: newTotal
+        })
+        console.log(this.state.taxRate);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
     }).catch((err) => {
       console.error(err);
     })
@@ -85,6 +119,23 @@ export default class CartPage extends Component {
     axios.post(api() + '/changeQuant?itemId=' + result.id + '&itemAmount=' + (result.quantity - 1))
     .then((response) => {
       this.getCart();
+      axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
+      .then((response) => {
+        console.log(response.data.totalRate);
+        let newTaxRate = response.data.totalRate/100;
+        let taxAmount = newTaxRate * this.state.subtotal;
+        let newTotal = taxAmount + this.state.subtotal
+        this.setState({
+          isFormShown: !this.state.isFormShown,
+          taxRate: newTaxRate,
+          tax: taxAmount,
+          total: newTotal
+        })
+        console.log(this.state.taxRate);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
     }).catch((err) => {
       console.error(err);
     })
@@ -178,11 +229,11 @@ export default class CartPage extends Component {
             <span>Enter your Zipcode: </span>
             <input type='text' className="cartTotal-zipcode" placeholder='Enter your Zipcode'  onChange={this.onNewValue.bind(this)} value={this.state.newZipValue}></input>
           </form> */}
-          {!this.state.isFormShown ? taxInfo : taxForm}
+          {taxForm}<span><button className="searchInput button" onClick={this.onShowTaxes.bind(this)}>Get Taxes</button></span>
+          {taxInfo}
           <div className="cartTotal-subtotal">
             Total: ${this.state.total}
           </div>
-          <button className="searchInput button" onClick={this.onShowTaxes.bind(this)}>Get Taxes</button>
         </div>
 
       </div>
