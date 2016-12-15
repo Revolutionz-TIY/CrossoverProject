@@ -54,6 +54,11 @@
   background-color: #3A6683;
 }
 
+.App-navigation-link:active {
+  color: #F6F7FB;
+  background-color: #3A6683;
+}
+
 /**********Home Page**********/
 
 .home-container {
@@ -249,12 +254,65 @@ h2 {
   padding-top: 6rem;
 }
 
-h3 {
-  font-family: 'Avenir Next', sans-serif;
-  margin: 0;
-  padding: 0;
+/*********CART PAGE***********/
+
+.cartPage {
+  display: flex;
+  flex-direction: column;
 }
 
+.cartReturn-button {
+  align-self: center;
+  margin: 1rem auto;
+}
+
+.cartItem-container {
+  background-color: blue;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.cartItem-info {
+  background-color: green;
+  flex: 0 1 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartItem-quantity-wrapper {
+  justify-content: center;
+  background-color: pink;
+}
+
+.cartItem-controller {
+  margin: 0 0.5rem;
+}
+
+.cartItem-button {
+  margin-top: 1rem;
+  background-color: red;
+  border: none;
+  padding: 0.5rem 1rem;
+}
+
+.cartItem-button:hover {
+  background-color: darkred;
+}
+
+.cartTotal-container {
+  margin-top: 2rem;
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.cartTotal-zipcode {
+  border: none;
+  border-radius: 2px;
+  padding: 0.5rem 1rem;
+}
 
 @media (min-width: 850px) {
   .home-container {

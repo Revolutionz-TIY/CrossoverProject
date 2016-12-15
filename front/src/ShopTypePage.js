@@ -6,8 +6,6 @@ import StoreNavigation from './StoreNavigation';
 import { FormattedMessage } from 'react-intl';
 
 
-
-
 export default class ShopTypePage extends Component {
   constructor (props) {
     super (props)
@@ -53,7 +51,6 @@ export default class ShopTypePage extends Component {
       console.error(error);
 
     })
-
   }
 
   render() {
@@ -66,7 +63,8 @@ export default class ShopTypePage extends Component {
               <div className="STP-content">
                 <img className="STP-image" src={result.image} role="presentation"></img>
                 <div className="STP-header" key={result.id}>
-                  <span className="STP-name">{result.name}</span><span className="STP-price">
+                  <span className="STP-name">{result.name}</span>
+                  <span className="STP-price">
                     <FormattedMessage
                     id={"+result.id+"}
                     defaultMessage={`\${price, number}`}
