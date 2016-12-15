@@ -65,6 +65,25 @@
   text-align: center;
 }
 
+.home-welcome-title {
+  font-size: 32px;
+  padding: 2rem;
+}
+
+.home-welcome-text {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.home-time-text {
+  margin: 0;
+  padding-bottom: 1rem;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .home-featureboxes {
   background-color: #F6F7FB;
 }
