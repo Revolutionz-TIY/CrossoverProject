@@ -18,7 +18,11 @@ export default class StoreNavigation extends Component {
 
   }
 
-  saveCheckboxList() {
+  saveCheckboxList(e) {
+    e.preventDefault();
+    if (this.state.checkedValues.length === 0 ) {
+      browserHistory.push('/shop/')
+    }
     var storeURL = this.state.checkedValues.reduce((a, v) => {
       if (a.length === 0) {
         return v
@@ -41,11 +45,11 @@ export default class StoreNavigation extends Component {
               <CheckboxList ref="chkboxList" defaultData={data} onChange={this.handleCheckboxListChange.bind(this)} />
           </div>
           <button className="Shop-Navigation-savebutton" onClick={this.saveCheckboxList.bind(this)}>Apply</button>
-        <ul className="Shop-navigation">
+        {/* <ul className="Shop-navigation">
           <li><Link to={'/shop/packages'}>Time Packages</Link></li>
           <li><Link to={'/shop/watches'}>Watches</Link></li>
           <li><Link to={'/shop/pat'}>Pick-A-Time Packages</Link></li>
-        </ul>
+        </ul> */}
       </div>
     )
   }

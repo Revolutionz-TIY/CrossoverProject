@@ -12,27 +12,41 @@ export default class ShopTypePage extends Component {
     this.state = {
       results: [],
       id: '',
-      api: api()
+      api: api(),
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    this.getItems();
+    this.getItems(nextProps);
   }
 
   componentDidMount() {
-    this.getItems();
+    this.getItems(this.props);
+
   }
-  getItems() {
+  getItems(nextProps) {
+    var types = nextProps.params.type.split(','); // ['pat', 'watches']
     axios.get(api() + '/products')
       .then((response) => {
         let newResults = response.data.slice(0).filter((v) => {
-          return v.type.toLowerCase().trim() === this.props.params.type
-        } );
+          var currentProductsValue = v.type.toLowerCase().trim();
+          console.log(nextProps.params);
+          var nextParamsType = nextProps.params.type.split(',');
+          // 'package'
+          // 'pat'
+          // 'watches'
+            // console.log(nextParamsType);
+            // console.log(types, currentProductsValue);
+            // console.log(types.indexOf(currentProductsValue) > -1);
+          if(types.indexOf(currentProductsValue) > -1) { // in array
+            return true
+          } else {
+            return false
+          }
+        });
         this.setState ({
           results: newResults
         })
-        console.log(newResults);
       })
       .catch((error) => {
         console.error(error);

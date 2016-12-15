@@ -10,7 +10,7 @@ export default class ShopPage extends Component {
     this.state = {
       results: [],
       id: '',
-      api: api()
+      api: api(),
     }
   }
 
