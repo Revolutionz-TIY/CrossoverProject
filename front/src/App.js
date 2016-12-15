@@ -43,9 +43,9 @@ export default class App extends Component {
           <h1><Link to={'/'} className="App-header-text">Revolutionz</Link></h1>
           <div>
             <ul className="App-navigation">
-              <li><Link to={'/about'} className="App-navigation-link">About</Link></li>
-              <li><Link to={'/shop'} className="App-navigation-link">Shop</Link></li>
-              <li><Link to={'/mywatch'} className="App-navigation-link">MyWatch</Link></li>
+              <li className="App-nav-item"><Link to={'/about'} className="App-navigation-link" activeClassName="active">About</Link></li>
+              <li className="App-nav-item"><Link to={'/shop'} className="App-navigation-link" activeClassName="active">Shop</Link></li>
+              <li className="App-nav-item"><Link to={'/mywatch'} className="App-navigation-link" activeClassName="active">MyWatch</Link></li>
             </ul>
           </div>
         </div>

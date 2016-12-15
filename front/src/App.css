@@ -35,8 +35,6 @@
   align-self: flex-end;
 }
 
-.App-navigation li {
-}
 
 .App-navigation-link {
   list-style: none;
@@ -46,6 +44,8 @@
   border: 1px solid #3A6683;
   border-radius: 2px;
   padding: 0.5rem 1rem;
+  position: relative;
+
 }
 
 .App-navigation-link:hover {
@@ -54,11 +54,15 @@
   background-color: #3A6683;
 }
 
-.App-navigation-link:active {
+.App-navigation-item:active {
   color: #F6F7FB;
   background-color: #3A6683;
 }
 
+.active {
+  color: #F6F7FB;
+  background-color: #3A6683;
+}
 /**********Home Page**********/
 
 .home-container {
@@ -167,6 +171,11 @@
 
 .About-text {
   color: #091421;
+}
+
+/**********Shop Navigation Page*********/
+.shop-navigation {
+  display: flex;
 }
 
 /**********ShopType Page**********/
@@ -334,6 +343,22 @@ h2 {
   border-radius: 2px;
   padding: 0.5rem 1rem;
 }
+
+.checkout-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.checkout-button {
+  padding: 12px 40px 12px 40px;
+  font-weight: bold;
+  color: #F6F7FB;
+  background-color: #37375b;
+  text-align: center;
+  text-decoration: none;
+}
+
+/****************MEDIA QUERIES****************/
 
 @media (min-width: 850px) {
   .home-container {

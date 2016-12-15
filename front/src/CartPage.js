@@ -235,7 +235,9 @@ export default class CartPage extends Component {
             Total: ${this.state.total}
           </div>
         </div>
-
+        <div className="checkout-button-container">
+          <Link to={'/checkout'} className="checkout-button">Checkout</Link>
+        </div>
       </div>
 
     );
