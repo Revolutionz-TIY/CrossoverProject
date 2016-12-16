@@ -209,6 +209,14 @@
   display: flex;
 }
 
+.Shop-Navigation-savebutton {
+  border:none;
+  margin-top: 5px;
+  padding:5px 10px 5px 10px;
+  background-color: #37375B;
+  color: #F6F7FB;
+}
+
 /**********ShopType Page**********/
 .STP-all {
   display: flex;
