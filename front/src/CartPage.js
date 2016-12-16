@@ -45,7 +45,6 @@ export default class CartPage extends Component {
               var itemSubtotal = item.quantity * item.price
               return itemSubtotal;
             });
-            console.log(itemsSubtotal);
             var reducedSubtotal = itemsSubtotal.reduce(function(a, b) {
               return a + b;
             }, 0);
@@ -53,7 +52,6 @@ export default class CartPage extends Component {
               results: ciwq,
               subtotal: reducedSubtotal
             })
-            console.log(ciwq);
           });
       })
       .catch((err) => {
@@ -172,7 +170,7 @@ export default class CartPage extends Component {
     let taxForm =
       <form className="cartTotal-form" onSubmit={this.getTax.bind(this)}>
         <span>Enter your Zipcode: </span>
-        <input type='text' className="cartTotal-zipcode" placeholder='Enter your Zipcode'  onChange={this.onNewValue.bind(this)} value={this.state.newZipValue}></input>
+        <input type='text' maxLength='5' className="cartTotal-zipcode" placeholder='Enter your Zipcode'  onChange={this.onNewValue.bind(this)} value={this.state.newZipValue}></input>
       </form>
     let taxInfo =
       <div className="cartTotal-tax">
@@ -223,7 +221,7 @@ export default class CartPage extends Component {
             Total: ${this.state.total}
           </div>
         </div>
-        <div className="checkout-button-container">
+        <div className="checkout-container">
           <Link to={'/checkout'} className="checkout-button">Checkout</Link>
         </div>
       </div>

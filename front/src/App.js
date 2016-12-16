@@ -4,6 +4,7 @@ import api from './Api.js'
 import { Link } from 'react-router';
 import './App.css';
 import './ionicons.css';
+import logo from './clocklogo.png';
 
 
 export default class App extends Component {
@@ -40,7 +41,12 @@ export default class App extends Component {
             <i className="icon ion-ios-cart-outline"></i>
             Cart
           </Link>
-          <h1><Link to={'/'} className="App-header-text">Revolutionz</Link></h1>
+          <h1>
+            <Link to={'/'} className="App-header-text">
+              <img src={logo} className="App-logo" alt="logo" /> 
+              <span>Revolutionz</span>
+            </Link>
+          </h1>
           <div>
             <ul className="App-navigation">
               <li className="App-nav-item"><Link to={'/about'} className="App-navigation-link" activeClassName="active">About</Link></li>

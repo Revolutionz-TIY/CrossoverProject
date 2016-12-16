@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
-// import {packagephoto} from './images/family.jpg';
-// import {watchesphoto} from './images/menswatch.jpg';
-// import {patphoto} from './images/patphoto.jpg';
 import './App.css';
 
 export default class HomePage extends Component {
@@ -17,9 +14,8 @@ export default class HomePage extends Component {
         <div className="home-welcome-wrapper">
           <h3 className="home-welcome-title">Time wasted is no longer time lost...</h3>
           <p className="home-welcome-text">
-            Have you ever woken up and wished you had more time to get your assignment done,
-            had a couple more days to finish something at work, or even had a few more hours
-            just to spend with your friends and family? We've all had those moments, but nothing could be done about it...until now!
+            Have you ever woken up and wished you had more time to finish something at work, or even had a few more hours
+            just for your friends and family? We've all had those moments, but nothing could be done about it...until now!
           </p>
           <p className="home-welcome-text">
             We've specially crafted and engineered all of your memories of happiness,

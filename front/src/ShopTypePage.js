@@ -31,7 +31,7 @@ export default class ShopTypePage extends Component {
         let newResults = response.data.slice(0).filter((v) => {
           var currentProductsValue = v.type.toLowerCase().trim();
           console.log(nextProps.params);
-          var nextParamsType = nextProps.params.type.split(',');
+          // var nextParamsType = nextProps.params.type.split(',');
           // 'package'
           // 'pat'
           // 'watches'
