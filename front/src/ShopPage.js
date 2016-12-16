@@ -69,8 +69,6 @@ export default class ShopPage extends Component {
                   <p className="STP-description">{result.description}</p>
                   <button className="STPbuttons" name='itemId' onClick={this.onAddClick.bind(this, result)} >Add to cart</button>
                 </div>
-                <div className="STP-footer">
-                </div>
               </div>
             )
           })}

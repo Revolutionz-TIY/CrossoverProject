@@ -67,16 +67,15 @@ export default class ShopTypePage extends Component {
 
   render() {
     return (
-      <div className="STP-all">
+      <div>
         <StoreNavigation />
+        <div className="STP-all">
         {this.state.results.map((result, index) => {
           return (
             <div key={result.id} className="STP-container">
-              <div className="STP-content">
                 <img className="STP-image" src={result.image} role="presentation"></img>
                 <div className="STP-header" key={result.id}>
-                  <span className="STP-name">{result.name}</span>
-                  <span className="STP-price">
+                  <span className="STP-name">{result.name}</span><span className="STP-price">
                     <FormattedMessage
                     id={"+result.id+"}
                     defaultMessage={`\${price, number}`}
@@ -89,11 +88,11 @@ export default class ShopTypePage extends Component {
                   <button className="STPbuttons" name='itemId' onClick={this.onAddClick.bind(this, result)} >Add to cart</button>
                 </div>
                 <div className="STP-footer"></div>
-                </div>
               </div>
           )
         })}
       </div>
+    </div>
     );
   }
 }
