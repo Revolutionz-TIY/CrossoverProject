@@ -185,26 +185,26 @@ export default class CartPage extends Component {
           return (
             <div key={result.id} className="cartItem-container">
               <div className="cartItem-info">
-                <h3>{result.name}</h3>
-                <h4><span className="cartItem-price">
+                <h4 className="cartItem-text">{result.name}</h4>
+                <h4 className="cartItem-text">
                   <FormattedMessage
                   id={"+result.id+"}
                   defaultMessage={`\${price, number}`}
                   values={{price: result.price}}
+                  className="cartItem-price"
                   />
-                </span>
                 </h4>
               </div>
               <div className="cartItem-quantity-wrapper">
-                <span>Quantity: {result.quantity}</span>
-                <br></br>
-                <button className="cartItem-controller" name='itemId' onClick={this.onAdd1Click.bind(this, result)}>
-                  <i className="icon ion-plus-round"></i>
-                </button>
-                <button className="cartItem-controller" name='itemId' onClick={this.onRemove1Click.bind(this, result)}>
-                  <i className="icon ion-minus-round"></i>
-                </button>
-                <br></br>
+                <span>
+                  Quantity: {result.quantity}
+                 <button className="cartItem-controller" name='itemId' onClick={this.onAdd1Click.bind(this, result)}>
+                    <i className="icon ion-plus-round"></i>
+                  </button>
+                  <button className="cartItem-controller" name='itemId' onClick={this.onRemove1Click.bind(this, result)}>
+                    <i className="icon ion-minus-round"></i>
+                  </button>
+                </span>
                 <button className="cartItem-button" name='itemId' onClick={this.onRemoveClick.bind(this, result)}>Remove <i className="icon ion-trash-b"></i></button>
               </div>
             </div>
@@ -215,7 +215,7 @@ export default class CartPage extends Component {
           <div className="cartTotal-subtotal">
             Subtotal: ${this.state.subtotal}
           </div>
-          {taxForm}<span><button className="searchInput button" onClick={this.onShowTaxes.bind(this)}>Get Taxes</button></span>
+          {taxForm}<span><button className="getTaxButton" onClick={this.onShowTaxes.bind(this)}>Get Taxes</button></span>
           {taxInfo}
           <div className="cartTotal-subtotal">
             Total: ${this.state.total}
