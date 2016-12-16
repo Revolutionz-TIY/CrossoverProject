@@ -4,6 +4,13 @@ import api from './Api.js'
 import { FormattedMessage } from 'react-intl';
 import StoreNavigation from './StoreNavigation';
 import {Link} from 'react-router';
+var ReactToastr = require("react-toastr");
+var {ToastContainer} = ReactToastr; // This is a React Element.
+// For Non ES6...
+// var ToastContainer = ReactToastr.ToastContainer;
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+import './toastr.min.css';
+import './animate.min.css';
 
 
 export default class ShopPage extends Component {
@@ -25,6 +32,16 @@ export default class ShopPage extends Component {
     this.getItems();
   }
 
+  addAlert (result) {
+    console.log(result.name);
+    this.refs.container.success(
+      "",
+      result.name + " add to cart!", {
+      timeOut: 1000,
+      extendedTimeOut: 1000
+    });
+  }
+
   getItems() {
     axios.get(api() + '/products')
       .then((response) => {
@@ -43,6 +60,7 @@ export default class ShopPage extends Component {
     axios.post(api() + '/addItem?itemId=' + result.id)
     .then((response) => {
       console.log(result.id + ' added to cart.');
+      this.addAlert.bind(this, result)();
       this.setState ({
         isFormShown: !this.state.isFormShown
       })
@@ -55,6 +73,9 @@ export default class ShopPage extends Component {
   render() {
     return (
       <div>
+          <ToastContainer ref="container"
+                        toastMessageFactory={ToastMessageFactory}
+                        className="toast-top-right" />
           <StoreNavigation />
           <div className="STP-all">
           {this.state.results.map((result, index) => {

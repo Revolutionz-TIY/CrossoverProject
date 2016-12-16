@@ -11,6 +11,8 @@ import CartPage from './CartPage';
 import CheckoutPage from './CheckoutPage';
 import ShopTypePage from './ShopTypePage';
 import { IntlProvider } from 'react-intl';
+import './toastr.min.css';
+import './animate.min.css';
 
 
 import './index.css';
