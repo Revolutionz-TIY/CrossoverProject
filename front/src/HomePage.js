@@ -41,7 +41,7 @@ export default class HomePage extends Component {
           <div className="home-featureboxes-2">
             <img src='http://i.imgur.com/Vqcv9Cv.jpg' className="home-featureboxes-img2" alt="Watches"/>
             <div className="home-featureboxes-textbutton">
-              <p className="home-featureboxes-text">Watches so that you never lose track.</p>
+              <p className="home-featureboxes-text">Watches so that you never lose track of your time.</p>
               <Link to={'/shop'} className="home-featureboxes-button">Shop Now</Link>
             </div>
           </div>
