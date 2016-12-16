@@ -40,11 +40,12 @@ export default class StoreNavigation extends Component {
         {value: 'pat', label: 'Pick-A-Time', checked: true}
     ];
     return(
-      <div>
-        <div>
+      <div className="checkboxes">
+          <div className="checkbox">
               <CheckboxList ref="chkboxList" defaultData={data} onChange={this.handleCheckboxListChange.bind(this)} />
+              <button className="Shop-Navigation-savebutton" onClick={this.saveCheckboxList.bind(this)}>Apply</button>
+
           </div>
-          <button className="Shop-Navigation-savebutton" onClick={this.saveCheckboxList.bind(this)}>Apply</button>
         {/* <ul className="Shop-navigation">
           <li><Link to={'/shop/packages'}>Time Packages</Link></li>
           <li><Link to={'/shop/watches'}>Watches</Link></li>
