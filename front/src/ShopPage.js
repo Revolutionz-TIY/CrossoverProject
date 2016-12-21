@@ -36,7 +36,7 @@ export default class ShopPage extends Component {
     console.log(result.name);
     this.refs.container.success(
       "",
-      result.name + " add to cart!", {
+      result.name + " added to cart!", {
       timeOut: 1000,
       extendedTimeOut: 1000
     });
