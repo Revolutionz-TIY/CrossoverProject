@@ -33,6 +33,8 @@ public class Main {
             product.add(products);
         }
 
+        Spark.port(getHerokuAssignedPort());
+
 
         Spark.staticFileLocation("/public");
 
@@ -185,5 +187,15 @@ public class Main {
                         return json;
 
                 })));
+    }
+
+
+
+    private static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 }
