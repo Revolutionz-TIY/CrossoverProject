@@ -9,7 +9,8 @@ export default class MyWatchPage extends Component {
   render() {
     return (
       <div>
-        MyWatchPage
+        <img src="http://images.mentalfloss.com/sites/default/files/styles/article_640x430/public/construction-banner.png" role="presentation"></img>
+
       </div>
     );
   }
