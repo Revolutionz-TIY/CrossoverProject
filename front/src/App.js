@@ -22,7 +22,7 @@ export default class App extends Component {
   }
 
   getItems() {
-    axios.get(api() + '/products')
+    axios.get(api() + '/api/products')
       .then((response) => {
         let newResults = response.data.slice(0);
         this.setState ({
@@ -39,7 +39,7 @@ export default class App extends Component {
       <div className="App">
         <div className="App-header">
           <Link to={'/cart'} className="cartButton">
-            <img src={cart} className="cartButton" alt="logo" /> 
+            <img src={cart} className="cartButton" alt="logo" />
           </Link>
           <h1>
             <Link to={'/'} className="App-header-text">

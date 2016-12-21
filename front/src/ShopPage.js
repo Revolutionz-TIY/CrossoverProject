@@ -43,7 +43,7 @@ export default class ShopPage extends Component {
   }
 
   getItems() {
-    axios.get(api() + '/products')
+    axios.get(api() + '/api/products')
       .then((response) => {
         let newResults = response.data.slice(0);
         this.setState ({
@@ -57,7 +57,7 @@ export default class ShopPage extends Component {
 
   onAddClick(result, e) {
     e.preventDefault();
-    axios.post(api() + '/addItem?itemId=' + result.id)
+    axios.post(api() + '/api/addItem?itemId=' + result.id)
     .then((response) => {
       console.log(result.id + ' added to cart.');
       this.addAlert.bind(this, result)();

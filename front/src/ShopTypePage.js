@@ -26,7 +26,7 @@ export default class ShopTypePage extends Component {
   }
   getItems(nextProps) {
     var types = nextProps.params.type.split(','); // ['pat', 'watches']
-    axios.get(api() + '/products')
+    axios.get(api() + '/api/products')
       .then((response) => {
         let newResults = response.data.slice(0).filter((v) => {
           var currentProductsValue = v.type.toLowerCase().trim();
@@ -55,7 +55,7 @@ export default class ShopTypePage extends Component {
   onAddClick(result, e) {
     e.preventDefault();
     console.log(result.id);
-    axios.post(api() + '/addItem?itemId=' + result.id)
+    axios.post(api() + '/api/addItem?itemId=' + result.id)
     .then((response) => {
       console.log(response);
 

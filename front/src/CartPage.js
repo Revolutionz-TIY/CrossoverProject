@@ -29,9 +29,9 @@ export default class CartPage extends Component {
   }
 
   getCart() {
-    axios.get(api() + '/cart')
+    axios.get(api() + '/api/cart')
       .then((responseCart) => {
-        axios.get(api() + '/products')
+        axios.get(api() + '/api/products')
           .then((responseProducts) => {
             var cartItems = responseProducts.data.filter((v) => {
               return  responseCart.data[''+v.id+''] > 0;
@@ -61,10 +61,10 @@ export default class CartPage extends Component {
 
   onRemoveClick(result, e) {
     e.preventDefault();
-    axios.post(api() + '/removeItem?itemId=' + result.id)
+    axios.post(api() + '/api/removeItem?itemId=' + result.id)
     .then((response) => {
       this.getCart();
-      axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
+      axios.get (api() + '/api/tax?zipCode=' + this.state.zipcode)
       .then((response) => {
         let newTaxRate = response.data.totalRate/100;
         let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
@@ -86,10 +86,10 @@ export default class CartPage extends Component {
 
   onAdd1Click(result, e) {
     e.preventDefault();
-    axios.post(api() + '/changeQuant?itemId=' + result.id + '&itemAmount=' + (result.quantity + 1))
+    axios.post(api() + '/api/changeQuant?itemId=' + result.id + '&itemAmount=' + (result.quantity + 1))
     .then((response) => {
       this.getCart();
-      axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
+      axios.get (api() + '/api/tax?zipCode=' + this.state.zipcode)
       .then((response) => {
         let newTaxRate = response.data.totalRate/100;
         let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
@@ -111,10 +111,10 @@ export default class CartPage extends Component {
 
   onRemove1Click(result, e) {
     e.preventDefault();
-    axios.post(api() + '/changeQuant?itemId=' + result.id + '&itemAmount=' + (result.quantity - 1))
+    axios.post(api() + '/api/changeQuant?itemId=' + result.id + '&itemAmount=' + (result.quantity - 1))
     .then((response) => {
       this.getCart();
-      axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
+      axios.get (api() + '/api/tax?zipCode=' + this.state.zipcode)
       .then((response) => {
         let newTaxRate = response.data.totalRate/100;
         let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
@@ -142,7 +142,7 @@ export default class CartPage extends Component {
 
   getTax(e) {
     e.preventDefault();
-    axios.get (api() + '/tax?zipCode=' + this.state.zipcode)
+    axios.get (api() + '/api/tax?zipCode=' + this.state.zipcode)
     .then((response) => {
       let newTaxRate = response.data.totalRate/100;
       let taxAmount = Math.round10(newTaxRate * this.state.subtotal, -2);
@@ -170,7 +170,7 @@ export default class CartPage extends Component {
     let taxForm =
       <form className="cartTotal-form" onSubmit={this.getTax.bind(this)}>
         <span>Enter your Zipcode: </span>
-        <input type='text' maxLength='5' className="cartTotal-zipcode" placeholder='Enter your Zipcode'  onChange={this.onNewValue.bind(this)} value={this.state.newZipValue}></input>
+        <input type='text' maxLength='5' className="cartTotal-zipcode" placeholder='Zipcode'  onChange={this.onNewValue.bind(this)} value={this.state.newZipValue}></input>
       </form>
     let taxInfo =
       <div className="cartTotal-tax">
@@ -215,7 +215,7 @@ export default class CartPage extends Component {
           <div className="cartTotal-subtotal">
             Subtotal: ${this.state.subtotal}
           </div>
-          {taxForm}<span><button className="getTaxButton" onClick={this.onShowTaxes.bind(this)}>Get Taxes</button></span>
+          {taxForm}
           {taxInfo}
           <div className="cartTotal-subtotal">
             Total: ${this.state.total}
