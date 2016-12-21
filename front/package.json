@@ -3,12 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:4567/",
+  "homepage": "https://revolutionz-tiy.github.io/CrossoverProject/",
   "devDependencies": {
     "react-scripts": "0.8.4"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-burger-menu": "^1.10.9",
+    "react-checkbox-list": "0.0.2",
+    "react-dom": "^15.4.1",
+    "react-intl": "^2.1.5",
+    "react-progress-button": "^5.0.1",
+    "react-router": "^3.0.0",
+    "react-toastr": "^2.8.2",
+    "round10": "^1.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,33 +1,64 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
+import api from './Api.js'
+import { Link } from 'react-router';
 import './App.css';
+import './ionicons.css';
+import logo from './clocklogo.png';
+import cart from './images/cart.svg';
 
-class App extends Component {
+
+export default class App extends Component {
   constructor (props) {
-    super (props),
-    this.state {
-
+    super (props)
+    this.state = {
+      results: [],
+      api: api()
     }
   }
-  componentDidMount () {
-    this.getApi();
+
+  componentDidMount() {
+    this.getItems();
   }
-  getApi () {
-    
+
+  getItems() {
+    axios.get(api() + '/products')
+      .then((response) => {
+        let newResults = response.data.slice(0);
+        this.setState ({
+          results: newResults,
+        })
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
+
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <Link to={'/cart'} className="cartButton">
+            <img src={cart} className="cartButton" alt="logo" /> 
+          </Link>
+          <h1>
+            <Link to={'/'} className="App-header-text">
+              <img src={logo} className="App-logo" alt="logo" />
+              <span>Revolutionz</span>
+            </Link>
+          </h1>
+          <div>
+            <ul className="App-navigation">
+              <li className="App-nav-item"><Link to={'/about'} className="App-navigation-link" activeClassName="active">About</Link></li>
+              <li className="App-nav-item"><Link to={'/shop'} className="App-navigation-link" activeClassName="active">Shop</Link></li>
+              <li className="App-nav-item"><Link to={'/mywatch'} className="App-navigation-link" activeClassName="active">MyWatch</Link></li>
+            </ul>
+          </div>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div>
+          {this.props.children}
+        </div>
       </div>
-    );
+    )
   }
 }
-
-export default App;

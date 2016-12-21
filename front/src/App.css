@@ -1,24 +1,565 @@
-.App {
-  text-align: center;
-}
+/**********App Page**********/
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App {
+  font-family: 'Avenir Next', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b4abcc+0,37375b+93 */
+  background: rgb(180,171,204); /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  rgba(180,171,204,1) 0%, rgba(55,55,91,1) 93%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg,  rgba(180,171,204,1) 0%,rgba(55,55,91,1) 93%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg,  rgba(180,171,204,1) 0%,rgba(55,55,91,1) 93%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4abcc', endColorstr='#37375b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  border-bottom: 1px solid #37375B;
+  box-shadow: 0px 2px 3px #37375b;
+  padding: 10px 0;
+  color: #090911;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.cartButton {
+  align-self: flex-end;
+  margin-right: 1rem;
+  width: 40px;
+  height: 40px;
+}
+
+.App-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.App-header-text{
+  text-decoration: none;
+  font-size: 34px;
+}
+
+.App-header-text:visited{
+  color: #090911;
 }
 
 .App-intro {
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.App-nav-item{
+  width: 100px;
+}
+
+.App-navigation {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-self: flex-end;
+}
+
+
+.App-navigation-link {
+  list-style: none;
+  color: #090911;
+  text-decoration: none;
+  background-color: #F6F7FB;
+  border: 1px solid #37375B;
+  border-radius: 2px;
+  padding: 0.5rem 1rem;
+  position: relative;
+
+}
+
+.App-navigation-link:hover {
+  transition: ease 0.3s;
+  color: #F6F7FB;
+  background-color: #37375B;
+}
+
+.App-navigation-item:active {
+  color: #F6F7FB;
+  background-color: #37375B;
+}
+
+.active {
+  color: #F6F7FB;
+  background-color: #37375B;
+}
+/**********Home Page**********/
+
+.home-container {
+  text-align: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.home-welcome-title {
+  font-size: 32px;
+  padding: 2rem;
+  margin: 0;
+}
+
+.home-welcome-text {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.home-time-text {
+  margin: 0;
+  padding-bottom: 1rem;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.home-featureboxes-textbutton {
+  background-color: #red;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+
+.home-featureboxes-title {
+  margin: 0;
+}
+
+.home-featureboxes-text {
+  display: none;
+  align-items:baseline;
+  text-align: center;
+  margin: 1rem auto;
+}
+
+.home-featureboxes-button {
+  background-color: #37375B;
+  color: #F6f7fb;
+  width: 100px;
+  text-decoration: none;
+  padding: 0.5rem;
+  align-self: center;
+
+}
+
+.home-featureboxes-button:hover {
+  background-color: #F6f7fb;
+  color: #37375B;
+}
+
+.home-featureboxes-1 {
+  border-top: 0.5px solid #3A6682;
+  border-left: 0.5px solid #3A6682;
+  border-right:  0.5px solid #3A6682;
+  border-bottom: 5px solid #3A6682;
+  margin-bottom: 2rem;
+}
+
+.home-featureboxes-img1 {
+  width: 100%;
+  height: 100%;
+}
+
+.home-featureboxes-2 {
+  border-top: 0.5px solid #37375B;
+  border-left: 0.5px solid #37375B;
+  border-right:  0.5px solid #37375B;
+  border-bottom: 5px solid #37375B;
+  margin-bottom: 2rem;
+}
+
+.home-featureboxes-img2 {
+  width: 100%;
+  height: 100%;
+}
+
+.home-featureboxes-3 {
+  border-top: 0.5px solid #3A6682;
+  border-left: 0.5px solid #3A6682;
+  border-right:  0.5px solid #3A6682;
+  border-bottom: 5px solid #3A6682;
+}
+
+.home-featureboxes-img3 {
+  width: 100%;
+  height: 100%;
+}
+
+/**********About Page**********/
+
+.About-content {
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+}
+
+.About-title {
+  padding:0;
+
+}
+
+.About-text {
+  color: #091421;
+}
+
+/**********Shop Navigation Page*********/
+.shop-navigation {
+  display: flex;
+}
+
+.Shop-Navigation-savebutton {
+  border:none;
+  margin-top: 5px;
+  padding:5px 10px 5px 10px;
+  background-color: #37375B;
+  color: #F6F7FB;
+}
+.checkboxes {
+  margin-left: 1rem;
+}
+.checkbox {
+}
+
+/**********ShopType Page**********/
+.STP-all {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.STP-container {
+  border-bottom: 3px solid #37375B;
+  box-shadow: 0px 3px 5px #37375B;
+  padding-bottom: 1rem;
+  margin: 1rem;
+  flex:1 2 40%;
+  flex-direction:row;
+}
+
+.STP-image {
+  width: 100%;
+  padding: 0;
+  margin:0;
+}
+
+.STP-header {
+  display:flex;
+  justify-content: space-between;
+  margin: 1rem 1rem 0 1rem;
+}
+
+.STP-name {
+  font-size: 24px;
+}
+
+.STP-price {
+  font-size:24px;
+}
+
+.STP-list {
+  display:flex;
+  justify-content: space-between;
+  font-size: 16px;
+  margin: 2rem 1rem 0 1rem;
+  padding: 0;
+  text-align: left;
+}
+
+.STP-description {
+  margin: 0;
+  padding: 0;
+  display:flex;
+  width: 50%;
+}
+
+.STPbuttons {
+  background: #37375B;
+  border:none;
+  min-height:32px;
+  max-height: 32px;
+  text-align: center;
+  color:#F6F7FB;
+}
+
+.goto-button {
+  background-color: green;
+  border:none;
+  min-height:32px;
+  max-height: 32px;
+  text-align: center;
+  color:#F6F7FB;
+  text-decoration: none;
+}
+
+/**********Fail Page***********/
+
+.FailPage {
+  height: 100vh;
+  font-family: 'Avenir Next', sans-serif;
+  background: url('./images/404clockpurp.jpg');
+  background-size: cover;
+}
+
+.fail-text-title {
+  font-family: 'Avenir Next', sans-serif;
+  font-weight: 600;
+  padding-top: 9rem;
+  padding-bottom: 2rem;
+  color: white;
+  font-size: 80px;
+  text-align: center;
+}
+
+.fail-text {
+  font-family: 'Avenir Next', sans-serif;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 60%;
+  padding-top: 3rem;
+
+}
+
+.fail-reroute{
+  font-family: 'Avenir Next', sans-serif;
+  color: white;
+  font-weight: 700;
+
+}
+
+h2 {
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 40px;
+  margin: 0;
+  padding-top: 6rem;
+}
+
+/*********CART PAGE***********/
+
+.cartPage {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.cartReturn-button {
+  align-self: center;
+  margin: 1rem auto;
+  padding: 12px 40px 12px 40px;
+  font-weight: bold;
+  color: #F6F7FB;
+  border: 1px solid #37375b;
+  background-color: #37375b;
+  text-align: center;
+  text-decoration: none;
+}
+
+.cartReturn-button:hover {
+  color: #37375b;
+  border: 1px solid #37375b;
+  background-color: #f6f7fb;
+}
+
+.cartItem-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  border-top: 0.5px solid #3A6682;
+  border-left: 0.5px solid #3A6682;
+  border-right:  0.5px solid #3A6682;
+  border-bottom: 5px solid #3A6682;
+  padding: 0.5rem auto;
+  margin-bottom: 2rem;
+}
+
+.cartItem-info {
+  flex: 0 1 100%;
+  display: flex;
+  margin: 0 1rem;
+  border-bottom: 1px solid #3A6682;
+  justify-content: space-between;
+}
+
+.cartItem-text {
+  margin-bottom: 0;
+}
+
+.cartItem-quantity-wrapper {
+  justify-content: center;
+  margin: 0.5rem 1rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartItem-controller {
+  display: inline-block;
+  background-color: #37375b;
+  color: #f6f7fb;
+  border: none;
+  margin: 0 5px;
+  border-radius: 2px;
+}
+
+.cartItem-controller:hover {
+  color: #37375b;
+  border: 1px solid #37375b;
+  background-color: #f6f7fb;
+}
+
+.cartItem-button {
+  width: 50%;
+  margin-bottom: 1rem;
+  align-self: flex-end;
+  margin-top: 1rem;
+  background-color: red;
+  border: none;
+  padding: 0.5rem 0.5rem;
+}
+
+.cartItem-button:hover {
+  background-color: #d22424;
+  border: 1px solid #d22424;
+  color: #f6f7fb;
+}
+
+.cartTotal-container {
+  margin: 0;
+  padding-right: 5px;
+  height: 150px;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: #f6f7fb;
+}
+
+.cartTotal-zipcode {
+  border: 0.5px solid #3A6682;
+  border-radius: 2px;
+  padding: 0.5rem 1rem;
+  width: 50px;
+}
+
+.getTaxButton{
+  background-color: #37375b;
+  border: 1px solid #37375b;
+  color: #f6f7fb;
+}
+
+.getTaxButton:hover {
+  color: #37375b;
+  border: 1px solid #37375b;
+  background-color: #f6f7fb;
+}
+
+.checkout-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.checkout-button {
+  padding: 12px 40px 12px 40px;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #F6F7FB;
+  background-color: #37375b;
+  border: 1px solid #37375b;
+  text-align: center;
+  text-decoration: none;
+}
+
+.checkout-button:hover {
+  background-color: green;
+  border: 1px solid green;
+  color: #f6f7fb;
+}
+
+/***************Checkout Page*****************/
+
+.CheckoutPage {
+  font-family: 'Avenir Next', sans-serif;
+  text-align: center;
+}
+
+.Checkout-title {
+  color: #37375b;
+  text-shadow: 1px;
+}
+
+.Checkout-text {
+ color:#09090F;
+}
+
+.Checkout-reroute {
+  text-decoration: none;
+  font-weight: 600;
+  color: #09090F;
+}
+/****************MEDIA QUERIES****************/
+
+@media (min-width: 850px) {
+  .home-container {
+    text-align: center;
+  }
+
+  .home-time-text {
+    padding-bottom: 3rem;
+  }
+
+  .home-featureboxes {
+    display:flex;
+  }
+
+  .home-featureboxes-textbutton {
+    background-color: #fff;
+  }
+
+  .home-featureboxes-text {
+    display: flex;
+    padding-left:0;
+    padding-right:0;
+  }
+
+  .home-featureboxes-1 {
+    border-bottom: 5px solid #3A6682;
+    width: 470px;
+    margin-bottom: 2rem;
+  }
+
+  .home-featureboxes-img1 {
+    width: 100%;
+    height: auto;
+  }
+
+  .home-featureboxes-2 {
+    border-bottom: 5px solid #37375B;
+    width: 470px;
+    margin-bottom: 2rem;
+    margin-left: .5rem;
+
+  }
+
+  .home-featureboxes-img2 {
+    width: 100%;
+    height: 60%;
+  }
+
+  .home-featureboxes-3 {
+    border-bottom: 5px solid #0A1322;
+    width: 470px;
+    margin-bottom: 2rem;
+    margin-left: .5rem;
+
+  }
+
+  .home-featureboxes-img3 {
+    width: 100%;
+    height: auto;
+  }
 }
