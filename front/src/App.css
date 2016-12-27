@@ -531,6 +531,19 @@ h2 {
   font-weight: 600;
   color: #09090F;
 }
+
+/****************MY WACTH PAGE****************/
+.myWatch-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+
+}
+.myWatch-image {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+}
 /****************MEDIA QUERIES****************/
 @media (min-width:650px) {
 
