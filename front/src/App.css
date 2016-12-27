@@ -7,15 +7,18 @@
 
 .App-header {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b4abcc+0,37375b+93 */
-  background: rgb(180,171,204); /* Old browsers */
-  background: -moz-linear-gradient(-45deg,  rgba(180,171,204,1) 0%, rgba(55,55,91,1) 93%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg,  rgba(180,171,204,1) 0%,rgba(55,55,91,1) 93%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg,  rgba(180,171,204,1) 0%,rgba(55,55,91,1) 93%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4abcc', endColorstr='#37375b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  /*background: rgb(180,171,204);
+  background: -moz-linear-gradient(-45deg,  rgba(180,171,204,1) 0%, rgba(55,55,91,1) 93%);
+  background: -webkit-linear-gradient(-45deg,  rgba(180,171,204,1) 0%,rgba(55,55,91,1) 93%);
+  background: linear-gradient(135deg,  rgba(180,171,204,1) 0%,rgba(55,55,91,1) 93%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4abcc', endColorstr='#37375b',GradientType=1 ); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url('./images/stars.jpg');
   border-bottom: 1px solid #37375B;
   box-shadow: 0px 2px 3px #37375b;
   padding: 10px 0;
-  color: #090911;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -34,13 +37,14 @@
   height: 50px;
 }
 
-.App-header-text{
+.App-header-text {
   text-decoration: none;
   font-size: 34px;
+  color: #f1f1f1;
 }
 
-.App-header-text:visited{
-  color: #090911;
+.App-header-text:visited {
+  color: #f1f1f1;
 }
 
 .App-intro {

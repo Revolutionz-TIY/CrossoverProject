@@ -4,7 +4,7 @@ import api from './Api.js'
 import { Link } from 'react-router';
 import './App.css';
 import './ionicons.css';
-import logo from './clocklogo.png';
+import logo from './images/clocklogo.svg';
 import cart from './images/cart.svg';
 
 
