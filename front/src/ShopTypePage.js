@@ -2,8 +2,16 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import api from './Api.js';
 import './App.css';
+import {Link} from 'react-router';
 import StoreNavigation from './StoreNavigation';
 import { FormattedMessage } from 'react-intl';
+var ReactToastr = require("react-toastr");
+var {ToastContainer} = ReactToastr; // This is a React Element.
+// For Non ES6...
+// var ToastContainer = ReactToastr.ToastContainer;
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+import './toastr.min.css';
+import './animate.min.css';
 
 
 export default class ShopTypePage extends Component {
@@ -22,8 +30,18 @@ export default class ShopTypePage extends Component {
 
   componentDidMount() {
     this.getItems(this.props);
-
   }
+
+  addAlert (result) {
+    console.log(result.name);
+    this.refs.container.success(
+      "",
+      result.name + " added to cart!", {
+      timeOut: 1000,
+      extendedTimeOut: 1000
+    });
+  }
+
   getItems(nextProps) {
     var types = nextProps.params.type.split(','); // ['pat', 'watches']
     axios.get(api() + '/api/products')
@@ -54,20 +72,24 @@ export default class ShopTypePage extends Component {
 
   onAddClick(result, e) {
     e.preventDefault();
-    console.log(result.id);
     axios.post(api() + '/api/addItem?itemId=' + result.id)
     .then((response) => {
-      console.log(response);
-
+      console.log(result.id + ' added to cart.');
+      this.addAlert.bind(this, result)();
+      this.setState ({
+        isFormShown: !this.state.isFormShown
+      })
     }).catch((error) => {
       console.error(error);
-
     })
   }
 
   render() {
     return (
       <div>
+        <ToastContainer ref="container"
+                      toastMessageFactory={ToastMessageFactory}
+                      className="toast-top-right" />
         <StoreNavigation />
         <div className="STP-all">
         {this.state.results.map((result, index) => {
@@ -85,7 +107,10 @@ export default class ShopTypePage extends Component {
                 </div>
                 <div className="STP-list">
                   <p className="STP-description">{result.description}</p>
-                  <button className="STPbuttons" name='itemId' onClick={this.onAddClick.bind(this, result)} >Add to cart</button>
+                  <div className="STPbuttons-container">
+                    <button className="STPbuttons" name='itemId' onClick={this.onAddClick.bind(this, result)} >Add to cart</button>
+                    <Link to={'/cart'} className="goto-button">Go to Cart</Link>
+                  </div>
                 </div>
                 <div className="STP-footer"></div>
               </div>

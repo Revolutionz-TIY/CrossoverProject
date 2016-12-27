@@ -93,10 +93,10 @@ export default class ShopPage extends Component {
                 </div>
                 <div className="STP-list">
                   <p className="STP-description">{result.description}</p>
-                  <button className="STPbuttons" name='itemId' onClick={this.onAddClick.bind(this, result)} >Add to cart</button>
-                  <button className="goto-button">
+                  <div className="STPbuttons-container">
+                    <button className="STPbuttons" name='itemId' onClick={this.onAddClick.bind(this, result)} >Add to cart</button>
                     <Link to={'/cart'} className="goto-button">Go to Cart</Link>
-                  </button>
+                  </div>
                 </div>
               </div>
             )

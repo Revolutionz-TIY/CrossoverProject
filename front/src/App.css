@@ -229,8 +229,8 @@
 /**********ShopType Page**********/
 .STP-all {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   max-width: 100%;
   margin: 0;
   padding: 0;
@@ -241,8 +241,7 @@
   box-shadow: 0px 3px 5px #37375B;
   padding-bottom: 1rem;
   margin: 1rem;
-  flex:1 2 40%;
-  flex-direction:row;
+  flex: 0 1 45%;
 }
 
 .STP-image {
@@ -267,6 +266,7 @@
 
 .STP-list {
   display:flex;
+  flex-direction: column;
   justify-content: space-between;
   font-size: 16px;
   margin: 2rem 1rem 0 1rem;
@@ -278,26 +278,52 @@
   margin: 0;
   padding: 0;
   display:flex;
+  /*width: 70%;*/
+}
+
+.STPbuttons-container {
+  margin: 1rem;
+  padding: 0;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
   width: 50%;
 }
 
 .STPbuttons {
   background: #37375B;
-  border:none;
-  min-height:32px;
-  max-height: 32px;
+  border: 1px solid #37375B;
+  height: 32px;
   text-align: center;
   color:#F6F7FB;
+  font-size: 16px;
+}
+
+.STPbuttons:hover {
+  background-color: #F6F7FB;
+  color: #37375B;
+  border: 2px solid #37375B;
+  transition: ease 0.3s;
 }
 
 .goto-button {
   background-color: green;
-  border:none;
-  min-height:32px;
-  max-height: 32px;
-  text-align: center;
+  border: 2px solid green;
+  transition: ease 0.3s;
+  height: 32px;
   color:#F6F7FB;
   text-decoration: none;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.goto-button:hover {
+  background-color: #F6F7FB;
+  color: green;
+  border: 1px solid green;
+  transition: ease 0.3s;
 }
 
 /**********Fail Page***********/
@@ -506,8 +532,37 @@ h2 {
   color: #09090F;
 }
 /****************MEDIA QUERIES****************/
+@media (min-width:650px) {
+
+  .STP-list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .STP-description {
+    margin: 0;
+    padding: 0;
+    display:flex;
+    width: 70%;
+  }
+
+  .STPbuttons-container {
+    margin: 1rem;
+    padding: 0;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+  }
+
+}
 
 @media (min-width: 850px) {
+  .STP-all {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
   .home-container {
     text-align: center;
   }
