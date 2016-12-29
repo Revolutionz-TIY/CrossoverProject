@@ -24,8 +24,7 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        File file = new File("product.csv");
-        Scanner scanner = new Scanner(file);
+        Scanner scanner = new Scanner(Main.class.getResourceAsStream("/product.csv"));
         while (scanner.hasNext()) {
             String individual = scanner.nextLine();
             String[] a = individual.split("\\,");
